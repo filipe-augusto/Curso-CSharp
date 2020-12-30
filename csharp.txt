@@ -1,0 +1,345 @@
+22:52 20/12/2020
+numeros integrais
+
+       		 //integral assinado
+            sbyte num1 = 10;  //de -128 a 127
+            short num2 = 20; // de -32.768 a 32.767
+            int num3 = 30; //de -2,147 x 10^10
+            long num4 = 40L; //de -9,223x 10^18 a  9,223x 10^18
+
+            //integral sem sinal
+            byte num5 = 10; //0 a 255
+            ushort num6 = 20; //de  0 a 65.535
+            uint num7 = 30; //de 0 a 4.29 x 10^9
+            ulong num8 = 40L; // de 0 a 1,8. z 10^18
+
+            sbyte numero_primo;
+
+
+            Console.WriteLine(num1+num2);
+            Console.ReadKey();
+
+----------------------------------
+Encapsular
+  //encapsular = separar o programa em partes mais isoladas possiveis. É o processo de ocultar ou esconder uma classe do 
+  //acesso exterior
+//torna uma variavel privada e o acesso a ela será atraves de metodos
+   class Conta
+    {
+        private string _cliente;
+        private double _saldo;
+        private double _taxa = 10;
+       
+        public string Cliente
+        {
+            get { return _cliente; }
+            set
+            {
+                if (value != "Filipe" && value != "Chaves")
+                {
+                    _cliente = "Visitante";
+                    Saldo = 0;
+                }
+                else
+                {
+                    _cliente = value;
+                    Saldo = 1000;
+                }       }  }
+        public double Saldo
+        {
+            get { return _saldo; }
+            private set
+            {
+                _saldo = value;
+            } }}
+ 		----
+class Program
+{
+static void Main(string[] args)
+	{
+	    Conta c1 = new Conta();
+            c1.Cliente = "Filipe";	
+	    double valor = 100;
+            c1.Depositar(valor);
+	    Console.WriteLine("Cliente: "+ c1.Cliente);
+            Console.WriteLine("Saldo: "+ c1.Saldo);
+            Console.ReadKey();
+	}
+}
+-----------------------------------
+Herança
+//metodo abstrato nao tem implementação
+//quando herda um metodo * abstrat * é necessario usar o * override * na classe que herdara  
+//  classe marcada com * sealed *  nao pode ser herdada
+    abstract class Veiculo 
+    {
+        public string Cor { get; set; }
+        public string Marca { get; set; }
+        public int VelocidadeMAxima { get; set; }
+        public abstract void Acelerar(); //metodo abstrato nao tem implementação
+
+        public abstract void Parar();    
+    }
+ 		----
+    class Carro : Veiculo
+    {  
+        public void LigarMotor()
+        {
+            Console.WriteLine("O carro ligou o motor");
+        }
+        public override void Acelerar()//herdou uma classe abstrato, é necessario implementa-la
+        {
+            Console.WriteLine("Acelerou o carro!");
+        }
+
+        public override void Parar()// 
+        {
+            Console.WriteLine("Parou o carro!");
+        }}}
+                ----
+ sealed class Bicicleta : Veiculo //não pode ser herdada
+    {    
+        public void Pedalar()
+        {
+            Console.WriteLine("pedalando!");
+        }
+
+        public override void Acelerar()//herdou uma classe abstrato
+        {
+            Console.WriteLine("Acelerou a bicicleta!");
+        }
+
+        public override void Parar()
+        {
+            Console.WriteLine("Parou a bicicleta!");
+        }
+    }
+}
+
+                ----
+ class Program
+    { static void Main(string[] args) {
+	    Carro c = new Carro();
+            //c.Cor = "preto";
+ Bicicleta b = new Bicicleta();
+            //b.Cor = "veiculo";
+            
+}}
+----------------------------------------
+Metodo construtor
+
+ class Pessoa{
+        public string nome;
+        public string sobrenome;
+        public int anoNascimento;
+        public int idade;
+
+  public Pessoa(string nome, string sobrenome)
+        {
+            this.nome = nome;
+            this.sobrenome = sobrenome;
+            this.anoNascimento = 2002;
+            idade = Idade();
+        }
+ private int Idade()
+        {
+            return 2020 - anoNascimento;
+        }}
+              -------
+static void Main(string[] args)
+        {
+  Pessoa p1 = new Pessoa();  Console.WriteLine(p1.nome); Console.WriteLine(p1.sobrenome); Console.WriteLine(p1.anoNascimento);
+}
+---------------------------------------
+Modificadores
+
+ class Humano {
+        protected string nome; //é particular da classe e de quem herdar
+        public string sobrenome; //é completamente privado da classe
+        internal int idade;//restrito somente a aplicação
+    }
+	------
+    class Homem : Humano {
+        public void Metodo()
+        {
+            nome = "";
+            idade = 0;
+        }
+    }
+     -----
+static void Main(string[] args)
+        {
+	    Homem h = new Homem();
+            h.idade = 27;}
+-----------------------------------------------
+Polimorfismo
+//é o princípio pelo qual duas ou mais classes derivadas de uma mesma superclasse podem invocar métodos que têm a mesma identificação (assinatura) mas comportamentos distintos
+// ou seja, herda da superclasse e modifica os metodos
+ --------- superclasse
+public class Forma
+    {
+        public int x { get; private set; }
+        public int Y { get; private set; }
+        public int Altura { get; private set; }
+        public int Largura { get; private set; }
+        public int Raio { get; private set; }
+ public virtual void Desenhar() {
+            Console.WriteLine("Preparando-se para desenhar");  }}
+ public virtual void Area(){ }
+    ------- classe circulo - - irá herdar e modificar os metodos
+  public class Circulo : Forma
+    {
+        public override void Desenhar()
+        {
+            base.Desenhar();
+            Console.WriteLine("Desenhando um circulo"); 
+ }
+        public override void Area() {
+            double area = 3.14 * (Raio * Raio);
+            Console.WriteLine("Area do Circulo " + area);   }}
+      ------------- classe retangulo - irá herdar e vai modificar os metodos
+
+  public class Retangulo : Forma
+    {
+        public override void Desenhar()
+        {
+            base.Desenhar();
+            Console.WriteLine("Desenhando um retangulo");
+        }
+        public override void Area()
+        {
+            double area = Altura * Largura;
+            Console.WriteLine("Area do retangulo  " + area);}}
+	----------- classe principal
+static void Main(string[] args)
+        {
+ Forma a = new Forma();  
+ Forma c = new Circulo();
+ Forma d = new Retangulo();
+}
+---------------------------------
+//Interface
+//não é considerada uma Classe e sim uma Entidade.
+//Não possui implementação, apenas assinatura, ou seja, apenas a definição dos seus métodos sem o corpo
+//  Todos os métodos são abstratos.
+//Seus métodos são implicitamente Públicos e Abstratos.
+// Não há como fazer uma instância de uma Interface e nem como criar um Construtor.
+ interface IConta
+    {
+        String Usuario { get; set; }
+
+        void Depositar();
+        void Saldo();
+        void Sacar();
+    }
+
+class CaixaEletronico : IConta
+    {
+        public string Usuario { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public void Depositar()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Sacar()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Saldo()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SolicitarEmpresimo() { }
+    }
+
+------------------------------
+Propriedades   #
+class Teste
+    {
+        //definição de um campo
+        private string _nome; 
+        public string _sobrenome { get; } = "Chaves"; //definindo valor padrão
+        private int _idade;
+	
+  public string Nome
+        {
+            get
+            {
+                return _nome;
+            }
+            set
+            {
+                _nome = value;
+            }
+        }
+
+  public int Idade 
+        {
+            get
+            {
+                return _idade;
+            }
+           set
+            {
+                if(value < 18)
+                {
+                    Console.WriteLine("idade não pode ser menor que 18 anos");
+                }
+                else { 
+                _idade = value; }}
+}           
+        static void Main(string[] args)
+        {
+            Teste t = new Teste();
+            t.Nome = "Filipe";
+            t.Idade = 27;
+	Console.WriteLine(t.Nome + " "+ t._sobrenome);
+}
+-----------------------
+Deletegate
+//delegate armazena referencias de metodos
+
+  class Matematica
+    {
+        public void Somar(int n1, int n2)
+        {
+            Console.WriteLine("A soma é: " + (n1 + n2));
+        }
+        public void Subtrair(int n1, int n2)
+        {
+            Console.WriteLine("A subtração é: " + (n1 - n2));
+        }
+        public void Divdir(int n1, int n2)
+        {
+            Console.WriteLine("A divisão é: " + (n1 / n2));
+        }
+        public void Multiplicar(int n1, int n2)
+        {
+            Console.WriteLine("A multiplicação é: " + (n1 / n2));
+        }
+    }
+}
+         ---------
+class Program
+    {
+        delegate void Operacao(int n1,int n2); 
+
+        static void Main(string[] args)
+        {
+            Matematica m = new Matematica();
+            Operacao conta = null;
+
+            conta += m.Somar;
+            conta += m.Subtrair;
+            conta += m.Divdir;
+            conta += m.Multiplicar;
+            conta(10, 2);
+
+            Console.ReadKey();
+        }
+    }
+
+-----------------------
