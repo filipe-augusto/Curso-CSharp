@@ -35,16 +35,16 @@ namespace ManipularString
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(79, 22);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(12, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(344, 84);
+            this.label1.Size = new System.Drawing.Size(749, 299);
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
             // 
             // btnExecutar
             // 
-            this.btnExecutar.Location = new System.Drawing.Point(557, 338);
+            this.btnExecutar.Location = new System.Drawing.Point(645, 375);
             this.btnExecutar.Name = "btnExecutar";
             this.btnExecutar.Size = new System.Drawing.Size(127, 53);
             this.btnExecutar.TabIndex = 1;
@@ -56,7 +56,7 @@ namespace ManipularString
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 510);
             this.Controls.Add(this.btnExecutar);
             this.Controls.Add(this.label1);
             this.Name = "Form1";

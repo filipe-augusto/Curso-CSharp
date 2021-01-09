@@ -471,3 +471,109 @@ toString
 int num = 5400;
             label1.Text = num.ToString();
 ---------------
+15:45 09/01/2021
+-----------------------------------------------
+CLASSE PARA CADASTRAR O USUARIO
+ static class CadastrarUsuario
+    {
+
+        /*
+         * 
+         * Um membro estático não pode ser referenciado através de uma instância mas somente através do nome do tipo.
+         * RESUMO:
+  - Não pode ser usada com indexadores;
+  - Pode ser usada em construtores;
+  - Por padrão é privada;
+  - Pode ser publica ou parametrizada;
+  - Se aplicada a uma classe todos os membros tem que ser estáticos também;
+  - Não pode ser acessado por uma instância;*/
+        private static Usuario[] usuarios =
+            {
+                new Usuario(){ Nome = "Filipe",Senha="abc123"},//0
+                new Usuario(){ Nome = "fabio",Senha="abc12345"},//1
+                new Usuario(){ Nome = "Arthur",Senha="bb"}//2
+        };
+        private static Usuario _userLogado = null;
+      
+        public static Usuario UsuarioLogado {
+            get { return _userLogado; }
+            private set { _userLogado = value; }
+        }
+
+        public static bool Login(string nome, string senha)  {
+            foreach(Usuario usuario in usuarios) {
+                if (usuario.Nome == nome && usuario.Senha == senha) {
+                    UsuarioLogado = usuario;
+                    return true;
+                }
+            }
+                return false;
+        }
+    }
+
+------------------
+CLASSE USUARIO
+  class Usuario
+    {
+       public  string Senha { get; set; }
+        public string Nome { get; set; }
+    }
+
+-------------------------
+FORM TELA DE LOGIN
+public partial class FormLogin : Form
+    {
+        public static bool Cancelar = false;
+        public FormLogin()
+        {
+            InitializeComponent();
+        }
+
+   
+
+        private void btnSenha_Click(object sender, EventArgs e)
+        {
+            string nome = txtUsuario.Text;
+            string senha = txtSenha.Text;
+            if (CadastrarUsuario.Login(nome, senha)) {
+                Close();
+            }
+            else {
+                MessageBox.Show("Acesso Negado!");
+                txtUsuario.Text = "";
+                txtSenha.Text = "";
+                _ = txtUsuario.Focus();
+                Close();
+
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Cancelar = true;
+            Close();
+        }
+    }
+
+-------------------------
+
+FORM PRINICIPAL
+ private void Form1_Load(object sender, EventArgs e)
+        {
+            FormLogin f = new FormLogin();
+            //
+
+            while(CadastrarUsuario.UsuarioLogado == null) {
+                Visible = false;
+                f.ShowDialog();
+
+                if (FormLogin.Cancelar) {
+                    Application.Exit();
+                    return;
+                }
+            }
+                label_BoasVindas.Text = "Bem vindo(a) \n" + CadastrarUsuario.UsuarioLogado.Nome;
+         
+            Visible =true;
+        }
+    }
