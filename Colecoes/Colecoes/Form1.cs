@@ -87,5 +87,38 @@ namespace Colecoes
             }
 
         }
+
+        private void btnDicionary_Click(object sender, EventArgs e)
+        {
+            Dictionary<int, string> alunos = new Dictionary<int, string>()
+            { { 150, "Cassila"},  {200,"Filipe"}, {800,"Cassila"}
+            };
+            alunos.Add(100, "Joao");
+
+            //foreach(KeyValuePair<int, string> item in alunos)
+            //{
+            //    listaBox.Items.Add(item);
+            //}
+            foreach (KeyValuePair<int, string> item in alunos)
+            {
+           //     listaBox.Items.Add(item.Value);
+              //  listaBox.Items.Add(item.Key);
+            }
+           // if (alunos.ContainsValue("Joel"))
+                if (alunos.ContainsKey(80))
+            {
+                MessageBox.Show("Contem a chave 80");
+            }
+            else
+            {
+                MessageBox.Show("Nao contem a chave 80");
+            }
+
+         //   MessageBox.Show("Quantidade de alunos" + alunos.Count);
+           // MessageBox.Show("Quantidade de alunos" + alunos.Remove(200));
+           // alunos.Clear();
+            _ = MessageBox.Show("ultimo" + alunos.Last().Key + " " + alunos.Last().Value);
+
+        }
     }
 }

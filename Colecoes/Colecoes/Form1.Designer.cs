@@ -32,6 +32,7 @@ namespace Colecoes
             this.btnList = new System.Windows.Forms.Button();
             this.listaBox = new System.Windows.Forms.ListBox();
             this.btnHashSet = new System.Windows.Forms.Button();
+            this.btnDicionary = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnList
@@ -64,11 +65,23 @@ namespace Colecoes
             this.btnHashSet.UseVisualStyleBackColor = true;
             this.btnHashSet.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnDicionary
+            // 
+            this.btnDicionary.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDicionary.Location = new System.Drawing.Point(534, 106);
+            this.btnDicionary.Name = "btnDicionary";
+            this.btnDicionary.Size = new System.Drawing.Size(133, 41);
+            this.btnDicionary.TabIndex = 4;
+            this.btnDicionary.Text = "Dicionary";
+            this.btnDicionary.UseVisualStyleBackColor = true;
+            this.btnDicionary.Click += new System.EventHandler(this.btnDicionary_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(669, 450);
+            this.Controls.Add(this.btnDicionary);
             this.Controls.Add(this.btnHashSet);
             this.Controls.Add(this.listaBox);
             this.Controls.Add(this.btnList);
@@ -82,6 +95,7 @@ namespace Colecoes
         private System.Windows.Forms.Button btnList;
         private System.Windows.Forms.ListBox listaBox;
         private System.Windows.Forms.Button btnHashSet;
+        private System.Windows.Forms.Button btnDicionary;
     }
 }
 
