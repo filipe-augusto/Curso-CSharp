@@ -101,7 +101,7 @@ namespace Colecoes
             //}
             foreach (KeyValuePair<int, string> item in alunos)
             {
-           //     listaBox.Items.Add(item.Value);
+              listaBox.Items.Add(item.Value);
               //  listaBox.Items.Add(item.Key);
             }
            // if (alunos.ContainsValue("Joel"))
@@ -117,8 +117,98 @@ namespace Colecoes
          //   MessageBox.Show("Quantidade de alunos" + alunos.Count);
            // MessageBox.Show("Quantidade de alunos" + alunos.Remove(200));
            // alunos.Clear();
-            _ = MessageBox.Show("ultimo" + alunos.Last().Key + " " + alunos.Last().Value);
+           // _ = MessageBox.Show("ultimo" + alunos.Last().Key + " " + alunos.Last().Value);
 
+        }
+
+        private void btnSortedList_Click(object sender, EventArgs e)
+        {
+            listaBox.Items.Clear();
+            SortedList<int, string> alunos = new SortedList<int, string>()
+            {
+                { 27,"Filipe"},
+                { 30, "CAssila"},
+                { 12, "augusto"}
+            };
+            alunos.Add(14, "Floria");
+            alunos.Remove(10);
+            //alunos.Reverse()
+
+            foreach (KeyValuePair<int, string> item in alunos)
+            {
+                listaBox.Items.Add(item.Key + " " + item.Value);
+            }
+        }
+        private void SortedDictionary_Click(object sender, EventArgs e)
+        {
+            SortedDictionary<int, string> alunos = new SortedDictionary<int, string>()
+            {
+                {1233,"Filipe" },
+                {14412,"August" },
+                {2344,"Danny" }
+            };
+            alunos.Add(1234, "Flavio");
+            // alunos.Remove(120);
+            _ = alunos.Count;
+            alunos.ContainsKey(1542);
+            alunos.ContainsValue("danny");      
+            foreach(KeyValuePair<int, string> item in alunos)
+            {
+                listaBox.Items.Add(item);
+            }
+
+        }
+
+        private void btnSortedSet_Click(object sender, EventArgs e)
+        {
+            listaBox.Items.Clear();
+            SortedSet<string> nomes = new SortedSet<string>()
+            {
+                "Filipe","Joel", "Cassila", "Breno"
+            };
+            nomes.First();
+            nomes.Last();
+            nomes.Max();
+            nomes.ElementAt(1);
+            MessageBox.Show(nomes.Max());
+
+            foreach(string nome in nomes)
+            {
+                listaBox.Items.Add(nome);
+            }
+        }
+
+        private void btnQueue_Click(object sender, EventArgs e)
+        {
+            Queue<string> fila = new Queue<string>();
+            fila.Enqueue("Filipe");
+            fila.Enqueue("Casisla");
+            fila.Enqueue("Cristina");
+            MessageBox.Show(fila.Count.ToString());
+            fila.Peek();//primeiro da fila
+            fila.Dequeue(); //aponta o primeiro da fila e remove
+            fila.First();
+            foreach(string item in fila)
+            {
+                listaBox.Items.Add(item);
+            }
+        }
+
+        private void btnStack_Click(object sender, EventArgs e)
+        {
+            //pilha primeiro a entrar é o ultimo a sair
+            listaBox.Items.Clear();
+            Stack<string> pilha = new Stack<string>();
+            pilha.Push("Isaac");
+            pilha.Push("Filipe");
+            pilha.Push("Cassila");
+           // MessageBox.Show(pilha.Count.ToString());
+            foreach(string item in pilha)
+            {
+                listaBox.Items.Add(item);
+            }
+          //  MessageBox.Show(pilha.Peek());//sem remove-lo da pilha
+            MessageBox.Show("elemento no topo" + pilha.Pop());//e remove
         }
     }
 }
