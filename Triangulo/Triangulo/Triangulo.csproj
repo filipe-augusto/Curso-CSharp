@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{77C15B65-48A9-4D8B-A365-E2C844DA46EB}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>JoKenPo</RootNamespace>
-    <AssemblyName>JoKenPo</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <ProjectGuid>{364DB006-C976-42F9-9585-E0EB4F1FF546}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Triangulo</RootNamespace>
+    <AssemblyName>Triangulo</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -39,43 +39,28 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Game.cs" />
+    <Compile Include="Calculadora.cs" />
+    <Compile Include="Calculator.cs" />
+    <Compile Include="ContaBancaria.cs" />
+    <Compile Include="Employess.cs" />
+    <Compile Include="Entities\Enums\OrderStatus.cs" />
+    <Compile Include="Entities\Order.cs" />
+    <Compile Include="Estudante.cs" />
+    <Compile Include="Funcionariocs.cs" />
+    <Compile Include="order.cs" />
+    <Compile Include="Pessoa.cs" />
+    <Compile Include="Ponit.cs" />
+    <Compile Include="Produto.cs" />
+    <Compile Include="Produto2.cs" />
+    <Compile Include="ProdutoUsandoEncapsulamento.cs" />
+    <Compile Include="ProdutoUsandoPropriedades.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
+    <Compile Include="Triangulo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

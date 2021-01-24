@@ -1,0 +1,25 @@
+﻿@using MVC_Israel.Models
+@model Autores
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid mt-">
+
+    @using (Html.BeginForm("Edit"))
+    {
+        <div class="form-group">
+            <label for="exampleInputEmail1">Nome</label>
+            <input type="text" class="form-control" name="IdAutor" hidden="hidden" id="IdAutor" value="@Model.IdAutor">
+            <input type="text" class="form-control" name="Nome" id="Nome" value="@Model.Nome" aria-describedby="emailHelp">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputPassword1">Pais</label>
+            <input type="text" class="form-control" name="Pais" id="Pais" value="@Model.Pais">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Adicionar</button>
+    }
+
+</div>
