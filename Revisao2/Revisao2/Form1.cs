@@ -81,6 +81,8 @@ namespace Revisao2
             txtNascimento.Text = "";
             txtNomeCliente.Focus();
         }
+
+    
     }
 
 
