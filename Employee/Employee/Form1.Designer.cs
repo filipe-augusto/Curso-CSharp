@@ -36,13 +36,13 @@ namespace Employee
             this.textHours = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panelOutSourcedEmployee = new System.Windows.Forms.Panel();
-            this.textAdditionalCharge = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.checkOutSource = new System.Windows.Forms.CheckBox();
-            this.textValuePerEployee = new System.Windows.Forms.TextBox();
             this.listTable = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnClean = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.textValuePerEployee = new System.Windows.Forms.MaskedTextBox();
+            this.textAdditionalCharge = new System.Windows.Forms.MaskedTextBox();
             this.panelOutSourcedEmployee.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,7 +54,7 @@ namespace Employee
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(130, 42);
             this.btnCadastrar.TabIndex = 0;
-            this.btnCadastrar.Text = "Cadastrar / Alterar";
+            this.btnCadastrar.Text = "Register / Change";
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -114,23 +114,15 @@ namespace Employee
             this.panelOutSourcedEmployee.Controls.Add(this.label4);
             this.panelOutSourcedEmployee.Location = new System.Drawing.Point(64, 265);
             this.panelOutSourcedEmployee.Name = "panelOutSourcedEmployee";
-            this.panelOutSourcedEmployee.Size = new System.Drawing.Size(484, 88);
+            this.panelOutSourcedEmployee.Size = new System.Drawing.Size(520, 88);
             this.panelOutSourcedEmployee.TabIndex = 7;
             this.panelOutSourcedEmployee.Tag = "Out sourced Employee";
-            // 
-            // textAdditionalCharge
-            // 
-            this.textAdditionalCharge.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textAdditionalCharge.Location = new System.Drawing.Point(230, 24);
-            this.textAdditionalCharge.Name = "textAdditionalCharge";
-            this.textAdditionalCharge.Size = new System.Drawing.Size(214, 31);
-            this.textAdditionalCharge.TabIndex = 10;
             // 
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Info;
-            this.label4.Location = new System.Drawing.Point(21, 24);
+            this.label4.Location = new System.Drawing.Point(3, 24);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(195, 31);
             this.label4.TabIndex = 9;
@@ -149,50 +141,62 @@ namespace Employee
             this.checkOutSource.UseVisualStyleBackColor = true;
             this.checkOutSource.CheckedChanged += new System.EventHandler(this.checkValuePerHour_CheckedChanged);
             // 
-            // textValuePerEployee
-            // 
-            this.textValuePerEployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textValuePerEployee.Location = new System.Drawing.Point(266, 161);
-            this.textValuePerEployee.Name = "textValuePerEployee";
-            this.textValuePerEployee.Size = new System.Drawing.Size(369, 31);
-            this.textValuePerEployee.TabIndex = 6;
-            // 
             // listTable
             // 
             this.listTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listTable.FormattingEnabled = true;
             this.listTable.ItemHeight = 24;
             this.listTable.Items.AddRange(new object[] {
-            "NAME , HOURS, VALUE PER HOURS, ADDTIONAL CHARGE"});
+            "Name and Salary"});
             this.listTable.Location = new System.Drawing.Point(42, 371);
             this.listTable.Name = "listTable";
             this.listTable.Size = new System.Drawing.Size(542, 148);
             this.listTable.TabIndex = 9;
             this.listTable.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listTable_MouseDoubleClick);
             // 
-            // button1
+            // btnClean
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(606, 430);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(130, 38);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Limpar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnClean.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClean.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.btnClean.Location = new System.Drawing.Point(606, 430);
+            this.btnClean.Name = "btnClean";
+            this.btnClean.Size = new System.Drawing.Size(130, 38);
+            this.btnClean.TabIndex = 10;
+            this.btnClean.Text = "Clean";
+            this.btnClean.UseVisualStyleBackColor = true;
+            this.btnClean.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // button2
+            // btnDelete
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.button2.Location = new System.Drawing.Point(606, 483);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(130, 36);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Excluir";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.btnDelete.Location = new System.Drawing.Point(606, 483);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(130, 36);
+            this.btnDelete.TabIndex = 11;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // textValuePerEployee
+            // 
+            this.textValuePerEployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textValuePerEployee.Location = new System.Drawing.Point(266, 161);
+            this.textValuePerEployee.Mask = "00000";
+            this.textValuePerEployee.Name = "textValuePerEployee";
+            this.textValuePerEployee.Size = new System.Drawing.Size(369, 31);
+            this.textValuePerEployee.TabIndex = 12;
+            this.textValuePerEployee.ValidatingType = typeof(int);
+            // 
+            // textAdditionalCharge
+            // 
+            this.textAdditionalCharge.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textAdditionalCharge.Location = new System.Drawing.Point(200, 21);
+            this.textAdditionalCharge.Mask = "00000";
+            this.textAdditionalCharge.Name = "textAdditionalCharge";
+            this.textAdditionalCharge.Size = new System.Drawing.Size(313, 31);
+            this.textAdditionalCharge.TabIndex = 13;
+            this.textAdditionalCharge.ValidatingType = typeof(int);
             // 
             // Form1
             // 
@@ -200,12 +204,12 @@ namespace Employee
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlText;
             this.ClientSize = new System.Drawing.Size(774, 562);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.textValuePerEployee);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnClean);
             this.Controls.Add(this.listTable);
             this.Controls.Add(this.checkOutSource);
             this.Controls.Add(this.panelOutSourcedEmployee);
-            this.Controls.Add(this.textValuePerEployee);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textHours);
             this.Controls.Add(this.label2);
@@ -235,12 +239,12 @@ namespace Employee
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panelOutSourcedEmployee;
         private System.Windows.Forms.CheckBox checkOutSource;
-        private System.Windows.Forms.TextBox textAdditionalCharge;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textValuePerEployee;
         private System.Windows.Forms.ListBox listTable;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnClean;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.MaskedTextBox textValuePerEployee;
+        private System.Windows.Forms.MaskedTextBox textAdditionalCharge;
     }
 }
 
