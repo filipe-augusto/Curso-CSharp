@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,10 +44,34 @@ namespace _Heranca_Helio
             //  //  acc5.
             //}
             #endregion
-            Account acc1 = new Account(1001, "Alex", 500.0);
-            Account acc2 = new SavingAccount(1002, "Anna", 500.0, 0.01);
+            //Account acc1 = new Account(1001, "Alex", 500.0);
+            //Account acc2 = new SavingAccount(1002, "Anna", 500.0, 0.01);
+            List<Account> list = new List<Account>();
+            list.Add(new SavingAccount(1001, "alex", 500, 0.01));
+            list.Add(new BusinessAcount(1002, "Maria", 500, 400));
+            list.Add(new SavingAccount(1001, "alex", 500, 0.01));
+            list.Add(new BusinessAcount(1001, "alex", 500, 0.01));
 
-            acc1.Withdraw(10);
+            double sum = 0.03;
+            foreach (Account acc in list){
+                sum += acc.Balance;
+            }
+            Console.WriteLine("Total balance: " + sum.ToString("F2"));
+            //acc1.Withdraw(10);
+
+            foreach(Account acc in list)
+            {
+                acc.Withdraw(10);
+            }
+
+            foreach(Account acc in list){
+                Console.WriteLine("updated balance for account" +
+                    acc.Number
+                    + " : "
+                    + acc.Balance.ToString("F2", CultureInfo.InvariantCulture));
+            }
+
+            Console.ReadKey();
 
 
         }
