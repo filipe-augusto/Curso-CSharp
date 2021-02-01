@@ -1,4 +1,8 @@
-﻿@{
+﻿@using MVC_Israel.Models
+@model Autor
+
+
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -8,12 +12,12 @@
     {
         <div class="form-group">
             <label for="exampleInputEmail1">Nome</label>
-            <input type="text" class="form-control" name="Nome" id="Nome" aria-describedby="emailHelp" >
+            <input type="text" class="form-control" name="Nome" id="Nome" aria-describedby="emailHelp">
         </div>
 
         <div class="form-group">
             <label for="exampleInputPassword1">Pais</label>
-            <input type="text" class="form-control" name="Pais" id="Pais" >
+            <input type="text" class="form-control" name="Pais" id="Pais">
         </div>
 
         <button type="submit" class="btn btn-primary">Adicionar</button>

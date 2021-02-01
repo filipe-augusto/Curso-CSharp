@@ -1,5 +1,42 @@
-﻿@{
+﻿@using MVC_Israel.Models
+@model Livros
+
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
+<div class="container-fluid mt-">
+
+    @using (Html.BeginForm("Create"))
+    {
+        <div class="form-group">
+            <label for="exampleInputEmail1">Nome</label>
+            <input type="text" class="form-control" name="Nome" id="Nome" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Genero</label>
+            <input type="text" class="form-control" name="Genero" id="Genero" aria-describedby="emailHelp">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Data de Cadastro</label>
+            <input type="date" class="form-control" name="DataCadastro" id="DataCadastro" aria-describedby="emailHelp">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Classificão</label>
+            <input type="number" class="form-control" name="Classificacao" id="Classificacao" aria-describedby="emailHelp">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Editora</label>
+            <input type="text" class="form-control" name="Editora" id="Editora" aria-describedby="emailHelp">
+        </div>
+
+        //Editora
+
+        <button type="submit" class="btn btn-primary">Adicionar</button>
+    }
+
+</div>

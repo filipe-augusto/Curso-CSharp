@@ -34,10 +34,14 @@ namespace MVC_Israel.Controllers
             return View();
         }
 
+
+
         [HttpPost]
         public ActionResult Create(Autores autores)
         {
+          //  byte id_autor = byte.Parse((DateTime.Now.Millisecond/10));
             Autor autor = new Autor();
+            autor.IdAutor = 10;
             autor.Nome = autores.Nome;
             autor.Pais = autores.Pais;
             livraria.Autor.Add(autor);

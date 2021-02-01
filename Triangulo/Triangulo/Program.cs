@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Triangulo.Entities;
 using Triangulo.Entities.Enums;
+using Triangulo.Entities.Exceptions;
 
 namespace Triangulo
 {
@@ -668,25 +669,89 @@ namespace Triangulo
             //Console.WriteLine(order);
 
             #endregion
+            #region try catch
+            //try
+            //{
+
+            //    int n1 = int.Parse(Console.ReadLine());
+            //    int n2 = int.Parse(Console.ReadLine());
+            //    int result = n1 / n2;
+            //    Console.WriteLine(result);
+
+            //}
+            ////catch (Exception e )
+            //catch (DivideByZeroException e)
+            //{
+            //    Console.WriteLine("Diivsion by zer is not allowed!" + e.Message);
+            //}catch(FormatException e)
+            //{
+            //    Console.WriteLine("Format error!" + e.Message);
+            //}finally
+            //{
+
+            //}
+            #endregion
+            #region exceções personalizadas
+
+            try
+            {
+                Console.Write("Room number:");
+                int number = int.Parse(Console.ReadLine());
+                Console.WriteLine("Check-in date (dd/MM/yyyy): ");
+                DateTime checkIn = DateTime.Parse(Console.ReadLine());
+                Console.WriteLine("Check-Out date (dd/MM/yyyy): ");
+                DateTime checkOut = DateTime.Parse(Console.ReadLine());
+
+                Reservation reservation = new Reservation(number, checkIn, checkOut);
+                Console.WriteLine("reservation: " + reservation);
+
+                Console.WriteLine();
+                Console.WriteLine("Enter data to update the reservation");
+                Console.WriteLine("Check-in date (dd/MM/yyyy): ");
+                checkIn = DateTime.Parse(Console.ReadLine());
+                Console.WriteLine("Check-Out date (dd/MM/yyyy): ");
+                checkOut = DateTime.Parse(Console.ReadLine());
+
+                //string error = reservation.UpdateDates(checkIn, checkOut);
+
+                reservation.UpdateDates(checkIn, checkOut);
+                Console.WriteLine("reservation: " + reservation);
+            }
+            catch (DomainException e)
+            {
+                Console.WriteLine("Error in reservation:" + e.Message);
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine("Format Error:" + e.Message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Unexpected error:" + e.Message);
+            }
+            
+
+            
+            #endregion
             Console.ReadLine();
         }
-  
 
-       
-      
-        }
-        #region membros estaticos
-        //static double Circunferencia(double r)
-        //{
-        //    return 2*PI * r;
-        //} 
 
-        //static double Volume(double r)
-        //{
-        //    return 4.0 / 3.0 * PI * r * r * r;
-        //}
-        #endregion
+
 
     }
+    #region membros estaticos
+    //static double Circunferencia(double r)
+    //{
+    //    return 2*PI * r;
+    //} 
+
+    //static double Volume(double r)
+    //{
+    //    return 4.0 / 3.0 * PI * r * r * r;
+    //}
+    #endregion
+
+}
 
 

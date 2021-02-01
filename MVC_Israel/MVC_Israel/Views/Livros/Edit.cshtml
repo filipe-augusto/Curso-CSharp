@@ -1,5 +1,43 @@
-﻿@{
+﻿@using MVC_Israel.Models
+@model Livros
+
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-editar
+<h1>Editar</h1>
+
+<div class="container-fluid mt-">
+
+    @using (Html.BeginForm("Edit"))
+    {
+        <div class="form-group">
+            <label for="exampleInputEmail1">Nome</label>
+            <input type="text"  name="IdLivro" hidden  id="IdLivro" value="@Model.IdLivro">
+            <input type="text" class="form-control" name="Nome" id="Nome" value="@Model.Nome" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Data de Cadastro</label>
+            <input type="date" class="form-control" name="DataCadastro" id="DataCadastro" value="@Model.DataCadastro">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Genero</label>
+            <input type="text" class="form-control" name="Genero" id="Genero" value="@Model.Genero">
+        </div>
+        @*<div class="form-group">
+            <label for="exampleInputEmail1">Genero</label>
+            <input type="text" class="form-control" name="Nome" id="Nome" value="@Model.Autores.Nome">
+        </div>*@
+        <div class="form-group">
+            <label for="exampleInputEmail1">Editora</label>
+            <input type="text" class="form-control" name="Editora" id="Editora" value="@Model.Editora">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Quantidade de paginas</label>
+            <input type="text" class="form-control" name="QuantidadePaginas" id="QuantidadePaginas" value="@Model.QuantidadePaginas">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Adicionar</button>
+    }
+
+</div>

@@ -1,5 +1,51 @@
-﻿@{
+﻿@using MVC_Israel.Models;
+@model List<Livros>
+
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="container-fluid">
+    <div class="row col-md-3">
+        <h1 class="text-capitalize "> Livros</h1>
+        @Html.ActionLink("Cadastrar", "Create", "Livros", new { @class = "btn btn-primary" })
+    </div>
+</div>
 
+<div class="container">
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Data de Cadastro</th>
+                <th scope="col">Autor</th>
+                <th scope="col">Editora</th>
+                <th scope="col">Genero</th>
+                <th scope="col">Quantidade de paginas</th>
+                <th scope="col">Classificação</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+            <tr>
+                <th scope="row">@item.IdLivro</th>
+                <td>@item.Nome</td>
+                <td>@item.DataCadastro</td>
+                <td>@*//@item.Autores.Nome*@</td>
+                <td>@item.Editora</td>
+                <td>@item.Genero</td>
+                <td>@item.QuantidadePaginas</td>
+                <td>@item.Classificacao</td>
+                <td>
+                    @Html.ActionLink("Deletar", "Delete", "Livros", new { IdLivro = item.IdLivro }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Editar", "Edit", "Livros", new { IdLivro = item.IdLivro }, new { @class = "btn btn-primary" })
+                </td>
+            </tr>
+            }
+
+        </tbody>
+            </table>
 
