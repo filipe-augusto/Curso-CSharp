@@ -39,20 +39,10 @@ namespace RentalCars
           // listar();
         }
 
-        public void listar<CarRental>(List<CarRental>  paramRental)
-        {
-           //// MessageBox.Show("chamou");
-           // listRental.Items.Clear();
-           // List<CarRental> a;
-           // a = paramRental;
-            
-
-            foreach (CarRental carRental in paramRental)
-            {
-                listRental.Items.Add($"{paramRental[0]}");
-                // $" |    {e.Hours} |    {e.ValuePerHour} |    {e.AdditionalCharge} |    {e.Payment()}. ");
-            }
-
+        public void listar(string paramRental)
+        {    
+                listRental.Items.Add($"1 - {paramRental}");                          
         }
     }
+
 }

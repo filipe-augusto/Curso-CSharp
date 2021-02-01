@@ -32,15 +32,20 @@ namespace RentalCars
             this.listRental = new System.Windows.Forms.ListView();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnRecord = new System.Windows.Forms.Button();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // listRental
             // 
+            this.listRental.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
             this.listRental.HideSelection = false;
             this.listRental.Location = new System.Drawing.Point(48, 12);
             this.listRental.Name = "listRental";
             this.listRental.Size = new System.Drawing.Size(706, 347);
-            this.listRental.TabIndex = 1;
+            this.listRental.TabIndex = 5;
             this.listRental.UseCompatibleStateImageBehavior = false;
             // 
             // btnBack
@@ -63,6 +68,15 @@ namespace RentalCars
             this.btnRecord.UseVisualStyleBackColor = true;
             this.btnRecord.Click += new System.EventHandler(this.btnRecord_Click);
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Tag = "Test";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Tag = "teste2";
+            this.columnHeader2.Text = "aaaaa";
+            // 
             // TableRental
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -83,5 +97,7 @@ namespace RentalCars
         private System.Windows.Forms.ListView listRental;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnRecord;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }
