@@ -64,10 +64,10 @@ namespace RentalCars
 
             for (int i = 0; i < listaObjRental.Count; i++)
             {
-                tabela.listar("Model car:" + listaObjRental[i].Vehicle.Model
-                 + "Start:" + listaObjRental[i].Start
-                    + "Finish:" + listaObjRental[i].Finish
-                    + "Total Payment: " /*+ listaObjRental[i].Invoice.TotalPayment*/);
+                tabela.listar(" Model car: " + listaObjRental[i].Vehicle.Model
+                 + " Start: " + listaObjRental[i].Start
+                    + " Finish: " + listaObjRental[i].Finish
+                    + " Total Payment: " /*+ listaObjRental[i].Invoice.TotalPayment*/);
             }
                
             tabela.Show();
