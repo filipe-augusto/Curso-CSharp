@@ -123,6 +123,28 @@ namespace ClassesImportantes
             lblResultado.Text = "bem vindo c#, trbalhando com fontes";
             lblResultado.Font = letra;
         }
+
+        private void btnEnvironment_Click(object sender, EventArgs e)
+        {
+            //string meusDocumentos = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            //string meusDesktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            //string cacheInternet = Environment.GetFolderPath(Environment.SpecialFolder.InternetCache);
+            //lblResultado.Text = cacheInternet + Environment.NewLine + meusDesktop;
+
+            //string varAmb = Environment.GetEnvironmentVariable("Path");
+            //lblResultado.Text = varAmb;
+
+            string user = Environment.UserName;
+            string dominio = Environment.UserDomainName;
+            int  cpu = Environment.ProcessorCount;
+            lblResultado.Text = user +"\n" +dominio +" CPU:" + cpu;
+
+            //string[] discos = Environment.GetLogicalDrives();
+            //foreach(string item in discos)
+            //{
+            //    lblResultado.Text += "\n" + item;
+            //}
+        }
     }
 
 }

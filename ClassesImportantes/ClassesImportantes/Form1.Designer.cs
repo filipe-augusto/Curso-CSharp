@@ -36,6 +36,7 @@ namespace ClassesImportantes
             this.btnDateTime = new System.Windows.Forms.Button();
             this.btnColor = new System.Windows.Forms.Button();
             this.butFont = new System.Windows.Forms.Button();
+            this.btnEnvironment = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnMensagemBox
@@ -51,9 +52,9 @@ namespace ClassesImportantes
             // lblResultado
             // 
             this.lblResultado.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResultado.Location = new System.Drawing.Point(44, 31);
+            this.lblResultado.Location = new System.Drawing.Point(12, 31);
             this.lblResultado.Name = "lblResultado";
-            this.lblResultado.Size = new System.Drawing.Size(693, 86);
+            this.lblResultado.Size = new System.Drawing.Size(761, 208);
             this.lblResultado.TabIndex = 1;
             this.lblResultado.Text = "label1";
             // 
@@ -107,11 +108,22 @@ namespace ClassesImportantes
             this.butFont.UseVisualStyleBackColor = true;
             this.butFont.Click += new System.EventHandler(this.butFont_Click);
             // 
+            // btnEnvironment
+            // 
+            this.btnEnvironment.Location = new System.Drawing.Point(346, 331);
+            this.btnEnvironment.Name = "btnEnvironment";
+            this.btnEnvironment.Size = new System.Drawing.Size(148, 45);
+            this.btnEnvironment.TabIndex = 7;
+            this.btnEnvironment.Text = "Environment";
+            this.btnEnvironment.UseVisualStyleBackColor = true;
+            this.btnEnvironment.Click += new System.EventHandler(this.btnEnvironment_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnEnvironment);
             this.Controls.Add(this.butFont);
             this.Controls.Add(this.btnColor);
             this.Controls.Add(this.btnDateTime);
@@ -135,6 +147,7 @@ namespace ClassesImportantes
         private System.Windows.Forms.Button btnDateTime;
         private System.Windows.Forms.Button btnColor;
         private System.Windows.Forms.Button butFont;
+        private System.Windows.Forms.Button btnEnvironment;
     }
 }
 
