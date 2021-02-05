@@ -37,6 +37,7 @@ namespace ClassesImportantes
             this.btnColor = new System.Windows.Forms.Button();
             this.butFont = new System.Windows.Forms.Button();
             this.btnEnvironment = new System.Windows.Forms.Button();
+            this.btnAplication = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnMensagemBox
@@ -54,7 +55,7 @@ namespace ClassesImportantes
             this.lblResultado.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblResultado.Location = new System.Drawing.Point(12, 31);
             this.lblResultado.Name = "lblResultado";
-            this.lblResultado.Size = new System.Drawing.Size(761, 208);
+            this.lblResultado.Size = new System.Drawing.Size(761, 148);
             this.lblResultado.TabIndex = 1;
             this.lblResultado.Text = "label1";
             // 
@@ -118,11 +119,22 @@ namespace ClassesImportantes
             this.btnEnvironment.UseVisualStyleBackColor = true;
             this.btnEnvironment.Click += new System.EventHandler(this.btnEnvironment_Click);
             // 
+            // btnAplication
+            // 
+            this.btnAplication.Location = new System.Drawing.Point(513, 331);
+            this.btnAplication.Name = "btnAplication";
+            this.btnAplication.Size = new System.Drawing.Size(148, 45);
+            this.btnAplication.TabIndex = 8;
+            this.btnAplication.Text = "Aplication";
+            this.btnAplication.UseVisualStyleBackColor = true;
+            this.btnAplication.Click += new System.EventHandler(this.btnAplication_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(868, 450);
+            this.Controls.Add(this.btnAplication);
             this.Controls.Add(this.btnEnvironment);
             this.Controls.Add(this.butFont);
             this.Controls.Add(this.btnColor);
@@ -148,6 +160,7 @@ namespace ClassesImportantes
         private System.Windows.Forms.Button btnColor;
         private System.Windows.Forms.Button butFont;
         private System.Windows.Forms.Button btnEnvironment;
+        private System.Windows.Forms.Button btnAplication;
     }
 }
 

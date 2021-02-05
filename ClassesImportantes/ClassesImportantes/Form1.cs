@@ -145,6 +145,16 @@ namespace ClassesImportantes
             //    lblResultado.Text += "\n" + item;
             //}
         }
+
+        private void btnAplication_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+            string exec = Application.ExecutablePath;
+            string pasta = Application.StartupPath;
+            Application.Restart();//restart
+           
+            lblResultado.Text = exec;
+        }
     }
 
 }
