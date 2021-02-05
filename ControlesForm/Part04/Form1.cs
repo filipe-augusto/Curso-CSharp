@@ -16,5 +16,40 @@ namespace Part04
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+     
+            lista.Items.Add(txtNome.Text);
+        }
+
+        private void btnClean_Click(object sender, EventArgs e)
+        {
+            lista.Items.Clear();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            object item = lista.SelectedItem;
+            lista.Items.Remove(item);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int indice = lista.SelectedIndex;
+            lista.Items.RemoveAt(indice);
+        }
+
+        private void lista_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           string nome = lista.SelectedItem.ToString();
+            txtNome.Text = nome;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int quantidadeDeItens = lista.Items.Count;
+            MessageBox.Show("Quanitade de itens na lista: " + quantidadeDeItens);
+        }
     }
 }
