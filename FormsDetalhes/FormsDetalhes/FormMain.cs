@@ -99,5 +99,10 @@ namespace FormsDetalhes
                 mPesquisar.Text = "";
             }
         }
+
+        private void btnControleCodigoFont_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

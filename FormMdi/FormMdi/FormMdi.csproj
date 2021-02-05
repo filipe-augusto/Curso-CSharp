@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FCE6BFA5-BB25-45E7-AA5C-17E32236B72D}</ProjectGuid>
+    <ProjectGuid>{83CC9BD6-C7F9-407A-AF05-36F616859D89}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>FormControl</RootNamespace>
-    <AssemblyName>FormControl</AssemblyName>
+    <RootNamespace>FormMdi</RootNamespace>
+    <AssemblyName>FormMdi</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,16 +46,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormControl.cs">
+    <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormControl.Designer.cs">
-      <DependentUpon>FormControl.cs</DependentUpon>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDois.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDois.Designer.cs">
+      <DependentUpon>FormDois.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTres.Designer.cs">
+      <DependentUpon>FormTres.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormControl.resx">
-      <DependentUpon>FormControl.cs</DependentUpon>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDois.resx">
+      <DependentUpon>FormDois.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTres.resx">
+      <DependentUpon>FormTres.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

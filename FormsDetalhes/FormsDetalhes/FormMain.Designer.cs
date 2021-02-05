@@ -33,7 +33,10 @@ namespace FormsDetalhes
             this.btnSecond = new System.Windows.Forms.Button();
             this.btnSecondFormWithThread = new System.Windows.Forms.Button();
             this.menuFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.mFilNovo = new System.Windows.Forms.ToolStripMenuItem();
+            this.mFileAbrir = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.mfileSair = new System.Windows.Forms.ToolStripMenuItem();
             this.menuHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.sobtrToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mHelpDev = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,9 +44,7 @@ namespace FormsDetalhes
             this.comboMenu = new System.Windows.Forms.ToolStripComboBox();
             this.MenuBar = new System.Windows.Forms.MenuStrip();
             this.mPesquisar = new System.Windows.Forms.ToolStripTextBox();
-            this.mFilNovo = new System.Windows.Forms.ToolStripMenuItem();
-            this.mFileAbrir = new System.Windows.Forms.ToolStripMenuItem();
-            this.mfileSair = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnControleCodigoFont = new System.Windows.Forms.Button();
             this.MenuBar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,12 +95,43 @@ namespace FormsDetalhes
             this.menuFile.Size = new System.Drawing.Size(52, 23);
             this.menuFile.Text = "File";
             // 
+            // mFilNovo
+            // 
+            this.mFilNovo.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.mFilNovo.Image = global::FormsDetalhes.Properties.Resources.new_file;
+            this.mFilNovo.Name = "mFilNovo";
+            this.mFilNovo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.mFilNovo.Size = new System.Drawing.Size(183, 24);
+            this.mFilNovo.Text = "Novo";
+            this.mFilNovo.ToolTipText = "Nova Janela";
+            this.mFilNovo.Click += new System.EventHandler(this.mFilNovo_Click);
+            // 
+            // mFileAbrir
+            // 
+            this.mFileAbrir.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.mFileAbrir.Image = global::FormsDetalhes.Properties.Resources.open_archive;
+            this.mFileAbrir.Name = "mFileAbrir";
+            this.mFileAbrir.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.mFileAbrir.Size = new System.Drawing.Size(183, 24);
+            this.mFileAbrir.Text = "Abrir";
+            this.mFileAbrir.Click += new System.EventHandler(this.mFileAbrir_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.BackColor = System.Drawing.SystemColors.Highlight;
             this.toolStripSeparator1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(180, 6);
+            // 
+            // mfileSair
+            // 
+            this.mfileSair.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.mfileSair.Image = global::FormsDetalhes.Properties.Resources.exit;
+            this.mfileSair.Name = "mfileSair";
+            this.mfileSair.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.mfileSair.Size = new System.Drawing.Size(183, 24);
+            this.mfileSair.Text = "Sair";
+            this.mfileSair.Click += new System.EventHandler(this.mfileSair_Click);
             // 
             // menuHelp
             // 
@@ -116,7 +148,7 @@ namespace FormsDetalhes
             this.mHelpDev,
             this.mHelpVesion});
             this.sobtrToolStripMenuItem.Name = "sobtrToolStripMenuItem";
-            this.sobtrToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sobtrToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.sobtrToolStripMenuItem.Text = "Sobre";
             this.sobtrToolStripMenuItem.Click += new System.EventHandler(this.sobtrToolStripMenuItem_Click);
             // 
@@ -157,7 +189,7 @@ namespace FormsDetalhes
             this.MenuBar.Location = new System.Drawing.Point(0, 0);
             this.MenuBar.Name = "MenuBar";
             this.MenuBar.Padding = new System.Windows.Forms.Padding(10, 3, 0, 3);
-            this.MenuBar.Size = new System.Drawing.Size(784, 29);
+            this.MenuBar.Size = new System.Drawing.Size(844, 29);
             this.MenuBar.TabIndex = 3;
             this.MenuBar.Text = "menuStrip1";
             // 
@@ -168,42 +200,24 @@ namespace FormsDetalhes
             this.mPesquisar.Size = new System.Drawing.Size(414, 23);
             this.mPesquisar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnPesquisar_KeyUp);
             // 
-            // mFilNovo
+            // btnControleCodigoFont
             // 
-            this.mFilNovo.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.mFilNovo.Image = global::FormsDetalhes.Properties.Resources.new_file;
-            this.mFilNovo.Name = "mFilNovo";
-            this.mFilNovo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.mFilNovo.Size = new System.Drawing.Size(183, 24);
-            this.mFilNovo.Text = "Novo";
-            this.mFilNovo.ToolTipText = "Nova Janela";
-            this.mFilNovo.Click += new System.EventHandler(this.mFilNovo_Click);
-            // 
-            // mFileAbrir
-            // 
-            this.mFileAbrir.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.mFileAbrir.Image = global::FormsDetalhes.Properties.Resources.open_archive;
-            this.mFileAbrir.Name = "mFileAbrir";
-            this.mFileAbrir.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.mFileAbrir.Size = new System.Drawing.Size(183, 24);
-            this.mFileAbrir.Text = "Abrir";
-            this.mFileAbrir.Click += new System.EventHandler(this.mFileAbrir_Click);
-            // 
-            // mfileSair
-            // 
-            this.mfileSair.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.mfileSair.Image = global::FormsDetalhes.Properties.Resources.exit;
-            this.mfileSair.Name = "mfileSair";
-            this.mfileSair.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.mfileSair.Size = new System.Drawing.Size(183, 24);
-            this.mfileSair.Text = "Sair";
-            this.mfileSair.Click += new System.EventHandler(this.mfileSair_Click);
+            this.btnControleCodigoFont.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnControleCodigoFont.Location = new System.Drawing.Point(574, 323);
+            this.btnControleCodigoFont.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.btnControleCodigoFont.Name = "btnControleCodigoFont";
+            this.btnControleCodigoFont.Size = new System.Drawing.Size(250, 66);
+            this.btnControleCodigoFont.TabIndex = 4;
+            this.btnControleCodigoFont.Text = "Controle Codigo Font";
+            this.btnControleCodigoFont.UseVisualStyleBackColor = true;
+            this.btnControleCodigoFont.Click += new System.EventHandler(this.btnControleCodigoFont_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 434);
+            this.ClientSize = new System.Drawing.Size(844, 434);
+            this.Controls.Add(this.btnControleCodigoFont);
             this.Controls.Add(this.btnSecondFormWithThread);
             this.Controls.Add(this.btnSecond);
             this.Controls.Add(this.lblTitulo);
@@ -238,6 +252,7 @@ namespace FormsDetalhes
         private System.Windows.Forms.ToolStripComboBox comboMenu;
         private System.Windows.Forms.MenuStrip MenuBar;
         private System.Windows.Forms.ToolStripTextBox mPesquisar;
+        private System.Windows.Forms.Button btnControleCodigoFont;
     }
 }
 
