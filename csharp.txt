@@ -1254,4 +1254,168 @@ namespace Variaveis
         }
 #endregion
 ---------------------------------------------------------------------
+TASK
+            #region Task Part 1
+            //Task t1 = new Task(Tarefa);
+            //t1.Start();
 
+            //Task t2 = Task.Run(Tarefa);
+
+            //Task.Run(Tarefa);
+            //Task.Factory.StartNew(Tarefa);
+
+            //Task.Run(() => {
+            //    for (int i = 0; i < 10; i++)
+            //    {
+            //        Console.WriteLine("tarefa anonima");
+            //    }
+            //});
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    Console.WriteLine("tarefa anonima");
+            //}
+            #endregion
+            #region Task Part 2
+            //Task[] tasks =
+            //{
+            //    Task.Factory.StartNew(()=>{                
+            //        Console.WriteLine("Tarefa 1");
+            //    }),
+            //        Task.Factory.StartNew(()=>{
+            //             Console.WriteLine("Tarefa 2");
+            //        }),
+            //            Task.Factory.StartNew(()=>{
+            //                 Console.WriteLine("Tarefa 3");
+            //            }),
+            //                Task.Factory.StartNew(()=>{
+            //                     Console.WriteLine("Tarefa 4");
+            //                })
+            //};
+            //  Task.WaitAll(tasks);// executa a task primeiro e o resto espera
+            //Task t1 = Task.Run(() => { Console.WriteLine("Comando #1"); });
+            //Task t2 = Task.Run(() => { Console.WriteLine("Comando #2"); });
+            //Task t3 = Task.Run(() => { Console.WriteLine("Comando #3"); });
+            //Task.WaitAll(t1,t2,t3);//na ordem
+            //Console.WriteLine("Principal");
+            //Console.ReadKey();
+            #endregion
+            //Task<int> tarefa1 = Task.Factory.StartNew(() => Dobro(5));
+            //Console.WriteLine(tarefa1.Result);
+            //Console.ReadKey();  
+
+            Task<int> tarefa1 = Task.Factory.StartNew(() =>
+            {
+               // return new Random().Next(10);//0 a 9
+                return 5;
+            });
+
+            Task<int> tarefa2 = tarefa1.ContinueWith((num)=> {
+                return num.Result * 2;
+            });
+
+            Task<string> tarefa3 = tarefa2.ContinueWith((num) =>
+            {
+                return "Valor final " + num.Result;
+            });
+
+            Console.WriteLine(tarefa3.Result);
+            Console.ReadKey();
+        }
+
+        static int Dobro(int num)
+        {
+            return num * 2;
+        }
+        static private void Tarefa()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine("Taregfa do task");
+            }
+        }
+    }
+----------------------------------------------------------------
+Thread
+
+ public partial class Form1 : Form
+    {
+        private  delegate void AtualizarControle(Control controle, string propriedade, object valor);
+        Thread t;
+        public Form1()
+        {
+            InitializeComponent();
+            t = new Thread(new ThreadStart(Tarefa));
+            t.IsBackground = true;
+        }
+
+        private void btnContador_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Principal");
+        }
+
+        private void btnPrincipal_Click(object sender, EventArgs e) {
+            if (!t.IsAlive)
+            {
+                t.Start();
+            }
+        }
+
+        private void Tarefa()
+        {
+            while (true)
+            {
+              //  DefinirValoPropriedade(lblResultado, "Text", DateTime.Now.Second.ToString());
+                DefinirValoPropriedade(lblResultado, "BackColor", Color.Red);
+                DefinirValoPropriedade(lblResultado, "BackColor", Color.Orange);
+                DefinirValoPropriedade(lblResultado, "BackColor", Color.Green);
+                lblResultado.Invoke(new Action(() => lblResultado.Text = DateTime.Now.Second.ToString()));
+            }
+        }
+        private void DefinirValoPropriedade(Control controle, string propriedade, object valor)
+        {
+            if (controle.InvokeRequired)
+            {
+                AtualizarControle d = new AtualizarControle(DefinirValoPropriedade);
+                controle.Invoke(d, new object[] { controle, propriedade, valor });
+            }
+            else
+            {
+                Type t = controle.GetType();
+                PropertyInfo[] props = t.GetProperties();
+
+                foreach (var p in props)
+                {
+                    if (p.Name.ToUpper() == propriedade.ToUpper())
+                    {
+                        p.SetValue(controle, valor, null);
+                    }
+                }
+            }
+        }
+    }
+-----------------------
+       static void Main(string[] args)
+        {
+
+            Thread t = new Thread(new ThreadStart(Tarefa));
+           //t.IsBackground = true;
+            t.Start();
+            t.Join();
+
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine("Principal");
+                Thread.Sleep(500);
+            }
+
+            Console.ReadKey();
+        }
+        static void Tarefa()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine("Tarefa executada");
+                Thread.Sleep(1000);
+            }
+        }
+    }

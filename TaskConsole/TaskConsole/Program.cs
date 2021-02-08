@@ -81,10 +81,6 @@ namespace TaskConsole
         {
             return num * 2;
         }
-
-
-
-
         static private void Tarefa()
         {
             for (int i = 0; i < 10; i++)
