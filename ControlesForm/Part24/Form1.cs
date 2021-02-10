@@ -25,6 +25,7 @@ namespace Part24
         private void button2_Click(object sender, EventArgs e)
         {
             picture.BackgroundImage = Image.FromFile("img/f2.jpg");
+           
         }
 
         private void button3_Click(object sender, EventArgs e)
