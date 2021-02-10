@@ -67,6 +67,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Part31_ToolStripContainer",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Part32_BlackGroundWorker", "Part32_BlackGroundWorker\Part32_BlackGroundWorker.csproj", "{0182FE47-987B-4F59-9E46-A88DD9EFC532}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Part33_Timer", "Part33_Timer\Part33_Timer.csproj", "{181F7666-AE10-4799-A455-73C1BA285732}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -201,6 +203,10 @@ Global
 		{0182FE47-987B-4F59-9E46-A88DD9EFC532}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0182FE47-987B-4F59-9E46-A88DD9EFC532}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0182FE47-987B-4F59-9E46-A88DD9EFC532}.Release|Any CPU.Build.0 = Release|Any CPU
+		{181F7666-AE10-4799-A455-73C1BA285732}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{181F7666-AE10-4799-A455-73C1BA285732}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{181F7666-AE10-4799-A455-73C1BA285732}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{181F7666-AE10-4799-A455-73C1BA285732}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
