@@ -60,8 +60,9 @@ namespace Diretorio
 
            //DirectoryInfo info =  Directory.GetParent(path);
            // lista.Items.Add(info.FullName);
-          string dir =  Directory.GetCurrentDirectory();
-            lista.Items.Add(dir);
+          //string dir =  Directory.GetCurrentDirectory();
+          //  lista.Items.Add(dir);
+
         }
     }
 }
