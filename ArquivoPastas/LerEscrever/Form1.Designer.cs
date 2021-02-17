@@ -31,6 +31,9 @@ namespace LerEscrever
         {
             this.txtConteudo = new System.Windows.Forms.TextBox();
             this.btnEscrever = new System.Windows.Forms.Button();
+            this.btnLer = new System.Windows.Forms.Button();
+            this.btnLerBinario = new System.Windows.Forms.Button();
+            this.btnBinario = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtConteudo
@@ -45,7 +48,7 @@ namespace LerEscrever
             // 
             // btnEscrever
             // 
-            this.btnEscrever.Location = new System.Drawing.Point(63, 352);
+            this.btnEscrever.Location = new System.Drawing.Point(105, 290);
             this.btnEscrever.Name = "btnEscrever";
             this.btnEscrever.Size = new System.Drawing.Size(194, 53);
             this.btnEscrever.TabIndex = 1;
@@ -53,15 +56,49 @@ namespace LerEscrever
             this.btnEscrever.UseVisualStyleBackColor = true;
             this.btnEscrever.Click += new System.EventHandler(this.btnEscrever_Click);
             // 
+            // btnLer
+            // 
+            this.btnLer.Location = new System.Drawing.Point(105, 352);
+            this.btnLer.Name = "btnLer";
+            this.btnLer.Size = new System.Drawing.Size(194, 53);
+            this.btnLer.TabIndex = 2;
+            this.btnLer.Text = "Ler";
+            this.btnLer.UseVisualStyleBackColor = true;
+            this.btnLer.Click += new System.EventHandler(this.btnLer_Click);
+            // 
+            // btnLerBinario
+            // 
+            this.btnLerBinario.Location = new System.Drawing.Point(500, 309);
+            this.btnLerBinario.Name = "btnLerBinario";
+            this.btnLerBinario.Size = new System.Drawing.Size(194, 53);
+            this.btnLerBinario.TabIndex = 3;
+            this.btnLerBinario.Text = "Ler Binario";
+            this.btnLerBinario.UseVisualStyleBackColor = true;
+            this.btnLerBinario.Click += new System.EventHandler(this.btnLerBinario_Click);
+            // 
+            // btnBinario
+            // 
+            this.btnBinario.Location = new System.Drawing.Point(500, 368);
+            this.btnBinario.Name = "btnBinario";
+            this.btnBinario.Size = new System.Drawing.Size(194, 53);
+            this.btnBinario.TabIndex = 4;
+            this.btnBinario.Text = "Escrever Binario";
+            this.btnBinario.UseVisualStyleBackColor = true;
+            this.btnBinario.Click += new System.EventHandler(this.btnBinario_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnBinario);
+            this.Controls.Add(this.btnLerBinario);
+            this.Controls.Add(this.btnLer);
             this.Controls.Add(this.btnEscrever);
             this.Controls.Add(this.txtConteudo);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -71,6 +108,9 @@ namespace LerEscrever
 
         private System.Windows.Forms.TextBox txtConteudo;
         private System.Windows.Forms.Button btnEscrever;
+        private System.Windows.Forms.Button btnLer;
+        private System.Windows.Forms.Button btnLerBinario;
+        private System.Windows.Forms.Button btnBinario;
     }
 }
 
