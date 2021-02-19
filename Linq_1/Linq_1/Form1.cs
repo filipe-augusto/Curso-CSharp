@@ -117,9 +117,6 @@ namespace Linq_1
                                        where nome.StartsWith(txt)
                                        select nome;
                lista.Items.AddRange(res2.ToArray());
-
-
-
         }
 
         private void btnWhere_Click(object sender, EventArgs e)

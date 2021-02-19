@@ -9,8 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlServerCe;
 using System.IO;
-using System.Data.SQLite;
-using MySql.Data.MySqlClient;
+
 
 namespace BaseDados
 {
