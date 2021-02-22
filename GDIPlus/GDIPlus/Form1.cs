@@ -103,19 +103,92 @@ namespace GDIPlus
             #endregion
             #region Curvas
 
-            Pen lapis = new Pen(Brushes.Blue, 10);
-            Point[] pontos =
-            {
-                new Point(100,50),
-                new Point(300,300),
-                new Point(500,200),
-                  new Point(300,100),
-                    new Point(500,100),
-            };
+            //   Pen lapis = new Pen(Brushes.Blue, 10);
+            //   Point[] pontos =
+            //   {
+            //       new Point(100,50),
+            //       new Point(300,300),
+            //       new Point(500,200),
+            //         new Point(300,100),
+            //           new Point(500,100),
+            //   };
 
-           // desenhador.DrawCurve(lapis,pontos,1.5f);
-         //   desenhador.DrawClosedCurve(lapis, pontos, 1.5f,FillMode.Alternate);
-            desenhador.FillClosedCurve(Brushes.Red, pontos,FillMode.Winding,1.5f);
+            //  // desenhador.DrawCurve(lapis,pontos,1.5f);
+            ////   desenhador.DrawClosedCurve(lapis, pontos, 1.5f,FillMode.Alternate);
+            //   desenhador.FillClosedCurve(Brushes.Red, pontos,FillMode.Winding,1.5f);
+            #endregion
+            #region Arcos
+            //Pen lapis = new Pen(Color.Black);
+            //Rectangle rect = new Rectangle(100, 100, 300, 250);
+
+            //desenhador.DrawArc(lapis, rect, 45, 270f);
+            #endregion
+            #region Bezier
+            //Pen lapis = new Pen(Color.Black,10);
+            //Point p1 = new Point(100, 300);
+            //Point p2 = new Point(200, 400);
+            //Point p3 = new Point(400, 100);
+            //Point p4 = new Point(500, 100);
+            //  Point p5 = new Point(100, 300);
+            //desenhador.DrawBezier(lapis, p1, p2, p3, p4);
+
+            //Point[] pontos =
+            //{
+            //    new Point(50,300),
+            //      new Point(200,400),
+            //        new Point(300,10),
+            //          new Point(500,100),
+            //};
+
+            //desenhador.DrawBeziers(lapis, pontos);
+            #endregion
+            #region Pie
+            // Pen lapis = new Pen(Color.Black,10);
+            // Rectangle rect = new Rectangle(50, 50,300,300);
+            //// desenhador.DrawPie(lapis,rect,270,90);
+            // desenhador.FillPie(Brushes.Red, rect, 270, 90);
+            // desenhador.FillPie(Brushes.Blue, rect, 180, 90);
+            #endregion
+            #region Path
+            //Pen lapis = new Pen(Color.Black);
+            //GraphicsPath graficsPath = new GraphicsPath(FillMode.Alternate);
+            //graficsPath.AddEllipse(new RectangleF(10, 10, 100, 150));
+            //graficsPath.AddEllipse(new RectangleF(50, 10, 100, 150));
+            //graficsPath.AddRectangle(new RectangleF(150, 50, 150, 100));
+            //desenhador.DrawPath(lapis,graficsPath);
+            //desenhador.FillPath(Brushes.Red, graficsPath);
+            #endregion
+            #region String
+            //string texto = "Lorem Ipsum is simply dummy text of the printing and typesetting industry." +
+            //    " Lorem Ipsum has been the industry's standard dummy text ever since the 1500s," +
+            //    " when an unknown printer took a galley of type and scrambled it to make a type specimen book. ";
+
+            //Font letra = new Font("Arial", 18, FontStyle.Bold, GraphicsUnit.Point);
+            //Brush pincel = new SolidBrush(Color.Brown);
+            //Point ponto = new Point(50, 100);
+            //Rectangle rect = new Rectangle(10, 20, 550, 350);
+            //StringFormat alinhamento = new StringFormat();
+            ////  alinhamento.Alignment = StringAlignment.Center;
+            ////  alinhamento.LineAlignment = StringAlignment.Center;
+            //// alinhamento.FormatFlags = StringFormatFlags.DirectionVertical;
+            //alinhamento.Alignment = StringAlignment.Center;
+            //alinhamento.LineAlignment = StringAlignment.Near;
+            //desenhador.DrawString("Titulo da pagina", letra, Brushes.Red, rect, alinhamento);
+            //desenhador.DrawString(texto,letra, pincel, new Rectangle(10,80,550,300));
+            #endregion
+            #region Desenhar imagens
+            Image imgOrigem1 = Image.FromFile(Application.StartupPath + @"\imagens\paisagem.jpg");
+            Rectangle origem1 = new Rectangle(0, 0, imgOrigem1.Width, imgOrigem1.Height);
+            Rectangle destino1 = new Rectangle(0, 0, picture.Width, picture.Height);
+
+            Image imgOrigem2 = Image.FromFile(Application.StartupPath + @"\imagens\ave2.png");
+            Rectangle origem2 = new Rectangle(0, 0, imgOrigem2.Width, imgOrigem2.Height);
+            Rectangle destino2 = new Rectangle(300, 100, imgOrigem2.Width/2, imgOrigem2.Height/2);
+
+         desenhador.DrawImage(imgOrigem1, destino1, origem1, GraphicsUnit.Pixel);
+            desenhador.DrawImage(imgOrigem2, destino2, origem2, GraphicsUnit.Pixel);
+
+       //     desenhador.DrawImage();
             #endregion
 
 
