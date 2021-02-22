@@ -87,6 +87,38 @@ namespace GDIPlus
             //desenhador.FillEllipse(Brushes.LightGray, rect1);
 
             #endregion
+            #region Poligonos
+            //Pen lapis1 = new Pen(Color.Black, 10);
+            //Point[] pontos =
+            //{
+            //    new Point(100,100),
+            //      new Point(300,100),
+            //        new Point(250,250),
+            //        new Point(100,200)
+            //};
+            //desenhador.DrawPolygon(lapis1, pontos);
+            //Brush pincel = new LinearGradientBrush(new Rectangle(0, 0, 500, 500), Color.Red, Color.Yellow, 45);
+            //desenhador.FillPolygon(Brushes.Blue, pontos);
+            //desenhador.FillPolygon(pincel, pontos);
+            #endregion
+            #region Curvas
+
+            Pen lapis = new Pen(Brushes.Blue, 10);
+            Point[] pontos =
+            {
+                new Point(100,50),
+                new Point(300,300),
+                new Point(500,200),
+                  new Point(300,100),
+                    new Point(500,100),
+            };
+
+           // desenhador.DrawCurve(lapis,pontos,1.5f);
+         //   desenhador.DrawClosedCurve(lapis, pontos, 1.5f,FillMode.Alternate);
+            desenhador.FillClosedCurve(Brushes.Red, pontos,FillMode.Winding,1.5f);
+            #endregion
+
+
             //utliizando num picture box
             picture.BackgroundImage = folha;
 

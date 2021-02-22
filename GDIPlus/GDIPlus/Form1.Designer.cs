@@ -35,6 +35,7 @@ namespace GDIPlus
             this.testeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.t1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.picture)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -86,7 +87,7 @@ namespace GDIPlus
             // t1ToolStripMenuItem
             // 
             this.t1ToolStripMenuItem.Name = "t1ToolStripMenuItem";
-            this.t1ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.t1ToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
             this.t1ToolStripMenuItem.Text = "T1";
             // 
             // Form1
@@ -116,6 +117,7 @@ namespace GDIPlus
         private System.Windows.Forms.ToolStripMenuItem testeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem t1ToolStripMenuItem;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }
 
