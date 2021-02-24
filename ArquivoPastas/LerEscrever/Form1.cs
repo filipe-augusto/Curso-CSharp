@@ -100,5 +100,12 @@ namespace LerEscrever
             writer.Close();
 
         }
+
+        private void btnTEste_Click(object sender, EventArgs e)
+        {
+            // txtConteudo.Text = comboTeste.SelectedItem + "";
+          //  string teste = "10/10/2020";
+            MessageBox.Show("10/10/2020");
+        }
     }
 }

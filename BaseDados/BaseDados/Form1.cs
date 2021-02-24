@@ -19,7 +19,7 @@ namespace BaseDados
         {
             InitializeComponent();
         }
-
+        int idLinha;
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -407,6 +407,31 @@ namespace BaseDados
             #region Mysql
 
             #endregion
+        }
+
+        private void listaResultado_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            listaResultado.Rows[e.RowIndex].Cells["acao"].ToolTipText = "Clique aqui";
+        }
+
+        private void listaResultado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+
+                idLinha = Convert.ToInt32(listaResultado.Rows[e.RowIndex].Cells["id"].Value.ToString());
+               // MessageBox.Show("teste" + idLinha);
+                //verifica a coluna que foi clicada
+                if (listaResultado.Columns[e.ColumnIndex] == listaResultado.Columns["acao"])
+                {
+                    MessageBox.Show("teste");
+                }
+            }
+            catch (Exception)
+            {
+              
+            }
+           
         }
     }
 }

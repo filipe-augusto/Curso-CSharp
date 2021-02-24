@@ -31,9 +31,6 @@ namespace BaseDados
         {
             this.lblResultado = new System.Windows.Forms.Label();
             this.listaResultado = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
@@ -44,6 +41,10 @@ namespace BaseDados
             this.btnProcurar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.acao = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.listaResultado)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,28 +65,16 @@ namespace BaseDados
             this.listaResultado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
             this.nome,
-            this.email});
+            this.email,
+            this.acao});
             this.listaResultado.Location = new System.Drawing.Point(47, 193);
             this.listaResultado.MultiSelect = false;
             this.listaResultado.Name = "listaResultado";
             this.listaResultado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.listaResultado.Size = new System.Drawing.Size(541, 330);
             this.listaResultado.TabIndex = 1;
-            // 
-            // id
-            // 
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            // 
-            // nome
-            // 
-            this.nome.HeaderText = "NOME";
-            this.nome.Name = "nome";
-            // 
-            // email
-            // 
-            this.email.HeaderText = "E-MAIL";
-            this.email.Name = "email";
+            this.listaResultado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listaResultado_CellContentClick);
+            this.listaResultado.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.listaResultado_CellFormatting);
             // 
             // label2
             // 
@@ -187,6 +176,26 @@ namespace BaseDados
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
+            // id
+            // 
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            // 
+            // nome
+            // 
+            this.nome.HeaderText = "NOME";
+            this.nome.Name = "nome";
+            // 
+            // email
+            // 
+            this.email.HeaderText = "E-MAIL";
+            this.email.Name = "email";
+            // 
+            // acao
+            // 
+            this.acao.HeaderText = "acao";
+            this.acao.Name = "acao";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -218,9 +227,6 @@ namespace BaseDados
 
         private System.Windows.Forms.Label lblResultado;
         private System.Windows.Forms.DataGridView listaResultado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn email;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNome;
@@ -231,6 +237,10 @@ namespace BaseDados
         private System.Windows.Forms.Button btnProcurar;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn email;
+        private System.Windows.Forms.DataGridViewButtonColumn acao;
     }
 }
 

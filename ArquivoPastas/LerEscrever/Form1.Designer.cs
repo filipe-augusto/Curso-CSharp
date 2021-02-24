@@ -34,6 +34,8 @@ namespace LerEscrever
             this.btnLer = new System.Windows.Forms.Button();
             this.btnLerBinario = new System.Windows.Forms.Button();
             this.btnBinario = new System.Windows.Forms.Button();
+            this.comboTeste = new System.Windows.Forms.ComboBox();
+            this.btnTEste = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtConteudo
@@ -86,11 +88,35 @@ namespace LerEscrever
             this.btnBinario.UseVisualStyleBackColor = true;
             this.btnBinario.Click += new System.EventHandler(this.btnBinario_Click);
             // 
+            // comboTeste
+            // 
+            this.comboTeste.FormattingEnabled = true;
+            this.comboTeste.Items.AddRange(new object[] {
+            "filipe",
+            "augusto",
+            "santos"});
+            this.comboTeste.Location = new System.Drawing.Point(347, 309);
+            this.comboTeste.Name = "comboTeste";
+            this.comboTeste.Size = new System.Drawing.Size(121, 21);
+            this.comboTeste.TabIndex = 5;
+            // 
+            // btnTEste
+            // 
+            this.btnTEste.Location = new System.Drawing.Point(335, 352);
+            this.btnTEste.Name = "btnTEste";
+            this.btnTEste.Size = new System.Drawing.Size(142, 53);
+            this.btnTEste.TabIndex = 6;
+            this.btnTEste.Text = "Ler";
+            this.btnTEste.UseVisualStyleBackColor = true;
+            this.btnTEste.Click += new System.EventHandler(this.btnTEste_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnTEste);
+            this.Controls.Add(this.comboTeste);
             this.Controls.Add(this.btnBinario);
             this.Controls.Add(this.btnLerBinario);
             this.Controls.Add(this.btnLer);
@@ -111,6 +137,8 @@ namespace LerEscrever
         private System.Windows.Forms.Button btnLer;
         private System.Windows.Forms.Button btnLerBinario;
         private System.Windows.Forms.Button btnBinario;
+        private System.Windows.Forms.ComboBox comboTeste;
+        private System.Windows.Forms.Button btnTEste;
     }
 }
 
