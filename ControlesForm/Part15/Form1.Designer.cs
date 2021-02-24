@@ -31,6 +31,10 @@ namespace Part15
         {
             this.progressBar2 = new System.Windows.Forms.ProgressBar();
             this.btnProgressBar = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.process1 = new System.Diagnostics.Process();
             this.SuspendLayout();
             // 
             // progressBar2
@@ -53,16 +57,56 @@ namespace Part15
             this.btnProgressBar.UseVisualStyleBackColor = true;
             this.btnProgressBar.Click += new System.EventHandler(this.btnProgressBar_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(23, 225);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 3;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(23, 251);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "definir";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(169, 221);
+            this.progressBar1.Maximum = 98;
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(403, 23);
+            this.progressBar1.Step = 5000;
+            this.progressBar1.TabIndex = 5;
+            // 
+            // process1
+            // 
+            this.process1.StartInfo.Domain = "";
+            this.process1.StartInfo.LoadUserProfile = false;
+            this.process1.StartInfo.Password = null;
+            this.process1.StartInfo.StandardErrorEncoding = null;
+            this.process1.StartInfo.StandardOutputEncoding = null;
+            this.process1.StartInfo.UserName = "";
+            this.process1.SynchronizingObject = this;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(663, 411);
+            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnProgressBar);
             this.Controls.Add(this.progressBar2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -70,6 +114,10 @@ namespace Part15
 
         private System.Windows.Forms.ProgressBar progressBar2;
         private System.Windows.Forms.Button btnProgressBar;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Diagnostics.Process process1;
     }
 }
 
