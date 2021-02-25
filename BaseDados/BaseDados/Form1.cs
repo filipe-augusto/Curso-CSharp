@@ -424,7 +424,7 @@ namespace BaseDados
                 //verifica a coluna que foi clicada
                 if (listaResultado.Columns[e.ColumnIndex] == listaResultado.Columns["acao"])
                 {
-                    MessageBox.Show("teste");
+                    MessageBox.Show(listaResultado.Columns["nome"].ToString());
                 }
             }
             catch (Exception)
