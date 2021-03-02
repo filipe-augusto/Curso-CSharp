@@ -38,12 +38,12 @@ namespace BancoDeDados_Data_Grid_File
             this.label1 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.dataGridViewLista = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NOME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DATAINCLUSAO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DESCRICAO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IMAGEM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DOWNLOAD = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.EXCLUSAO = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.linkImage = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.btnExcluir = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLista)).BeginInit();
             this.SuspendLayout();
@@ -148,19 +148,24 @@ namespace BancoDeDados_Data_Grid_File
             this.dataGridViewLista.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridViewLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewLista.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
             this.NOME,
             this.DATAINCLUSAO,
             this.DESCRICAO,
-            this.IMAGEM,
-            this.DOWNLOAD,
-            this.EXCLUSAO});
+            this.linkImage,
+            this.btnExcluir});
             this.dataGridViewLista.Location = new System.Drawing.Point(24, 187);
             this.dataGridViewLista.Name = "dataGridViewLista";
             this.dataGridViewLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewLista.Size = new System.Drawing.Size(743, 206);
             this.dataGridViewLista.TabIndex = 1;
             this.dataGridViewLista.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewLista_CellContentClick);
-            this.dataGridViewLista.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewLista_CellDoubleClick);
+            // 
+            // id
+            // 
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.Visible = false;
             // 
             // NOME
             // 
@@ -177,20 +182,17 @@ namespace BancoDeDados_Data_Grid_File
             this.DESCRICAO.HeaderText = "DESCRIÇÃO";
             this.DESCRICAO.Name = "DESCRICAO";
             // 
-            // IMAGEM
+            // linkImage
             // 
-            this.IMAGEM.HeaderText = "IMAGEM";
-            this.IMAGEM.Name = "IMAGEM";
+            this.linkImage.HeaderText = "IMAGEM";
+            this.linkImage.Name = "linkImage";
+            this.linkImage.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.linkImage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // DOWNLOAD
+            // btnExcluir
             // 
-            this.DOWNLOAD.HeaderText = "DOWNLOAD";
-            this.DOWNLOAD.Name = "DOWNLOAD";
-            // 
-            // EXCLUSAO
-            // 
-            this.EXCLUSAO.HeaderText = "EXCLUIR";
-            this.EXCLUSAO.Name = "EXCLUSAO";
+            this.btnExcluir.HeaderText = "EXCLUIR";
+            this.btnExcluir.Name = "btnExcluir";
             // 
             // Form1
             // 
@@ -222,12 +224,12 @@ namespace BancoDeDados_Data_Grid_File
         private System.Windows.Forms.DataGridView dataGridViewLista;
         private System.Windows.Forms.TextBox txtDescricao;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn NOME;
         private System.Windows.Forms.DataGridViewTextBoxColumn DATAINCLUSAO;
         private System.Windows.Forms.DataGridViewTextBoxColumn DESCRICAO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IMAGEM;
-        private System.Windows.Forms.DataGridViewButtonColumn DOWNLOAD;
-        private System.Windows.Forms.DataGridViewButtonColumn EXCLUSAO;
+        private System.Windows.Forms.DataGridViewLinkColumn linkImage;
+        private System.Windows.Forms.DataGridViewButtonColumn btnExcluir;
     }
 }
 
