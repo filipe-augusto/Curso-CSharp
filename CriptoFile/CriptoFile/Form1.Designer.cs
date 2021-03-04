@@ -49,7 +49,7 @@ namespace CriptoFile
             this.btnCriptoFile.TabIndex = 0;
             this.btnCriptoFile.Text = "Croptografia arquivo";
             this.btnCriptoFile.UseVisualStyleBackColor = true;
-            this.btnCriptoFile.Click += new System.EventHandler(this.btnCriptoFile_Click);
+            this.btnCriptoFile.Click += new System.EventHandler(this.buttonEncryptFile_Click);
             // 
             // txtKey
             // 
@@ -80,7 +80,7 @@ namespace CriptoFile
             this.btnExportarChavePublica.TabIndex = 3;
             this.btnExportarChavePublica.Text = "Exportar chave publica";
             this.btnExportarChavePublica.UseVisualStyleBackColor = true;
-            this.btnExportarChavePublica.Click += new System.EventHandler(this.btnExportarChavePublica_Click);
+            this.btnExportarChavePublica.Click += new System.EventHandler(this.buttonExportPublicKey_Click);
             // 
             // btnExportarChavePrivada
             // 
@@ -92,7 +92,7 @@ namespace CriptoFile
             this.btnExportarChavePrivada.TabIndex = 5;
             this.btnExportarChavePrivada.Text = "Importar chave publica";
             this.btnExportarChavePrivada.UseVisualStyleBackColor = true;
-            this.btnExportarChavePrivada.Click += new System.EventHandler(this.btnExportarChavePrivada_Click);
+            this.btnExportarChavePrivada.Click += new System.EventHandler(this.buttonGetPrivateKey_Click);
             // 
             // DescriptoFile
             // 
@@ -104,7 +104,7 @@ namespace CriptoFile
             this.DescriptoFile.TabIndex = 4;
             this.DescriptoFile.Text = "Descriptografar arquivo";
             this.DescriptoFile.UseVisualStyleBackColor = true;
-            this.DescriptoFile.Click += new System.EventHandler(this.DescriptoFile_Click);
+            this.DescriptoFile.Click += new System.EventHandler(this.buttonDecryptFile_Click);
             // 
             // btnObterChavePrivada
             // 
@@ -116,7 +116,7 @@ namespace CriptoFile
             this.btnObterChavePrivada.TabIndex = 7;
             this.btnObterChavePrivada.Text = "Obter chave privada";
             this.btnObterChavePrivada.UseVisualStyleBackColor = true;
-            this.btnObterChavePrivada.Click += new System.EventHandler(this.btnObterChavePrivada_Click);
+            this.btnObterChavePrivada.Click += new System.EventHandler(this.buttonGetPrivateKey_Click);
             // 
             // btnCriarChaves
             // 
@@ -128,7 +128,7 @@ namespace CriptoFile
             this.btnCriarChaves.TabIndex = 6;
             this.btnCriarChaves.Text = "Criar chaves";
             this.btnCriarChaves.UseVisualStyleBackColor = true;
-            this.btnCriarChaves.Click += new System.EventHandler(this.btnCriarChaves_Click);
+            this.btnCriarChaves.Click += new System.EventHandler(this.buttonCreateAsmKeys_Click);
             // 
             // Form1
             // 
