@@ -68,6 +68,7 @@ namespace BancoDeDados_Data_Grid_File
         {
             return new SqlConnection(strConection);
         }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             try
@@ -190,5 +191,16 @@ namespace BancoDeDados_Data_Grid_File
             {
                 MessageBox.Show("teste");
             }
+
+        private void btn_Click(object sender, EventArgs e)
+        {
+            NotaFiscalTester f = new NotaFiscalTester();
+            f.ShowDialog();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
     }

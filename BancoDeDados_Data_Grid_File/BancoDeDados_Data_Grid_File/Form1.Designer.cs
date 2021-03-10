@@ -44,6 +44,7 @@ namespace BancoDeDados_Data_Grid_File
             this.DESCRICAO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.linkImage = new System.Windows.Forms.DataGridViewLinkColumn();
             this.btnExcluir = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLista)).BeginInit();
             this.SuspendLayout();
@@ -51,6 +52,7 @@ namespace BancoDeDados_Data_Grid_File
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.btn);
             this.panel1.Controls.Add(this.txtDescricao);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.btnAdd);
@@ -194,6 +196,19 @@ namespace BancoDeDados_Data_Grid_File
             this.btnExcluir.HeaderText = "EXCLUIR";
             this.btnExcluir.Name = "btnExcluir";
             // 
+            // btn
+            // 
+            this.btn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn.Location = new System.Drawing.Point(615, 6);
+            this.btn.Name = "btn";
+            this.btn.Size = new System.Drawing.Size(102, 67);
+            this.btn.TabIndex = 8;
+            this.btn.Text = "Nota Fiscal";
+            this.btn.UseVisualStyleBackColor = false;
+            this.btn.Click += new System.EventHandler(this.btn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -206,6 +221,7 @@ namespace BancoDeDados_Data_Grid_File
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLista)).EndInit();
@@ -230,6 +246,7 @@ namespace BancoDeDados_Data_Grid_File
         private System.Windows.Forms.DataGridViewTextBoxColumn DESCRICAO;
         private System.Windows.Forms.DataGridViewLinkColumn linkImage;
         private System.Windows.Forms.DataGridViewButtonColumn btnExcluir;
+        private System.Windows.Forms.Button btn;
     }
 }
 
