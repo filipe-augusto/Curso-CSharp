@@ -24,6 +24,7 @@ namespace ConvertPDFInWord
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
                 lblConversao.Text = "";
                 lblCaminho.Text = "";
             try
@@ -52,12 +53,12 @@ namespace ConvertPDFInWord
                 lblConversao.Text = "Erro:  "+ ex.Message;
                
             }
-
+            this.Cursor = Cursors.Default;
         }
 
         public string escolherArquivo()
         {
-            var retorno = string.Empty;
+            var retorno = string.Empty;               
             using (var dialog = new OpenFileDialog())
             {
                 if (dialog.ShowDialog() == DialogResult.OK)
@@ -70,7 +71,6 @@ namespace ConvertPDFInWord
             }
             return retorno;
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -94,9 +94,20 @@ namespace ConvertPDFInWord
             }
         }
 
-        private void lblCaminho_Click(object sender, EventArgs e)
+        private void toolStripTextBox1_Click(object sender, EventArgs e)
         {
+            Application.Exit();
+        }
 
+        private void ajudaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Para converter, apenas clique no botão, escolhea o arquivo e automaticamente ele será " +
+                "convertido para word.", "Ajuda", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void sobreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Aplicação desenvolvida por Filipe Augusto.", "Sobre", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
