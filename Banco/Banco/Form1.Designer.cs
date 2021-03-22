@@ -44,12 +44,18 @@ namespace Banco
             this.txtNome = new System.Windows.Forms.TextBox();
             this.nome = new System.Windows.Forms.Label();
             this.consulta = new System.Windows.Forms.TabPage();
-            this.btnExcluir = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtBusca = new System.Windows.Forms.TextBox();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnExcluir = new System.Windows.Forms.DataGridViewImageColumn();
+            this.editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.tabControl1.SuspendLayout();
             this.cadastro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             this.panelAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtIdade)).BeginInit();
+            this.consulta.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -79,16 +85,22 @@ namespace Banco
             // 
             // dataView
             // 
+            this.dataView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataView.BackgroundColor = System.Drawing.SystemColors.MenuHighlight;
             this.dataView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.btnExcluir});
+            this.btnExcluir,
+            this.editar});
             this.dataView.GridColor = System.Drawing.SystemColors.MenuHighlight;
             this.dataView.Location = new System.Drawing.Point(24, 140);
             this.dataView.Name = "dataView";
+            this.dataView.RowHeadersWidth = 15;
+            this.dataView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataView.Size = new System.Drawing.Size(720, 250);
             this.dataView.TabIndex = 2;
+            this.dataView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataView_CellContentClick);
+            this.dataView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataView_DataBindingComplete);
             // 
             // btnNovo
             // 
@@ -227,6 +239,8 @@ namespace Banco
             // 
             // consulta
             // 
+            this.consulta.Controls.Add(this.txtBusca);
+            this.consulta.Controls.Add(this.label5);
             this.consulta.Location = new System.Drawing.Point(4, 22);
             this.consulta.Name = "consulta";
             this.consulta.Padding = new System.Windows.Forms.Padding(3);
@@ -235,16 +249,60 @@ namespace Banco
             this.consulta.Text = "Consulta";
             this.consulta.UseVisualStyleBackColor = true;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(24, 25);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(102, 25);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Procurar";
+            // 
+            // txtBusca
+            // 
+            this.txtBusca.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBusca.Location = new System.Drawing.Point(132, 22);
+            this.txtBusca.Name = "txtBusca";
+            this.txtBusca.Size = new System.Drawing.Size(545, 31);
+            this.txtBusca.TabIndex = 7;
+            this.txtBusca.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = global::Banco.Properties.Resources.editar;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.ToolTipText = "Clique para excluir";
+            this.dataGridViewImageColumn1.Width = 5;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewImageColumn2.HeaderText = "";
+            this.dataGridViewImageColumn2.Image = global::Banco.Properties.Resources.editar;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.Width = 30;
+            // 
             // btnExcluir
             // 
-            this.btnExcluir.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExcluir.HeaderText = "Excluir";
+            this.btnExcluir.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.btnExcluir.HeaderText = "";
+            this.btnExcluir.Image = global::Banco.Properties.Resources.excluir;
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.btnExcluir.ToolTipText = "Clique para excluir";
-            this.btnExcluir.UseColumnTextForButtonValue = true;
-            this.btnExcluir.Width = 44;
+            this.btnExcluir.Width = 30;
+            // 
+            // editar
+            // 
+            this.editar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.editar.HeaderText = "";
+            this.editar.Image = global::Banco.Properties.Resources.editar;
+            this.editar.Name = "editar";
+            this.editar.Width = 30;
             // 
             // Form1
             // 
@@ -262,6 +320,8 @@ namespace Banco
             this.panelAdd.ResumeLayout(false);
             this.panelAdd.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtIdade)).EndInit();
+            this.consulta.ResumeLayout(false);
+            this.consulta.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -278,12 +338,17 @@ namespace Banco
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label nome;
-        private System.Windows.Forms.DataGridView dataView;
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbProfissao;
         private System.Windows.Forms.Button btnAdicionarEditar;
-        private System.Windows.Forms.DataGridViewButtonColumn btnExcluir;
+        public System.Windows.Forms.DataGridView dataView;
+        private System.Windows.Forms.TextBox txtBusca;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewImageColumn btnExcluir;
+        private System.Windows.Forms.DataGridViewImageColumn editar;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
     }
 }
 

@@ -17,7 +17,7 @@ namespace Banco.Servicos
 
         private SqlConnection AbrirConexao()
         {
-            return new SqlConnection(stringConectJob);
+            return new SqlConnection(strConection);
         }
         public DataTable selectProfissao()
         {
@@ -38,7 +38,7 @@ namespace Banco.Servicos
             {
 
                 throw;
-            }     
+            }
         }
         public DataTable selectFuncionario()
         {
@@ -47,14 +47,12 @@ namespace Banco.Servicos
                 conexao.Open();
                 string query = "SELECT * FROM  VW_DADOS_FUNCIONARIO";
                 DataTable dados = new DataTable();
-                SqlDataAdapter adaptador = new SqlDataAdapter(query, stringConectJob);
+                SqlDataAdapter adaptador = new SqlDataAdapter(query, strConection);
                 adaptador.Fill(dados);
                 return dados;
             }
         }
-
-
-        public void addFuncionario( string nome, int idade, double salario, double profissao)
+        public void addFuncionario(string nome, int idade, double salario, double profissao)
         {
             try
             {
@@ -65,18 +63,59 @@ namespace Banco.Servicos
                     {
                         comando.CommandText = "INSERT INTO tblfuncionario (vNomeFuncionario,iIdade, dSalario, iProfissao) values" +
                             $"('{nome}',{idade},{salario},{profissao})";
-                       // ConfigurarParametros(comando, arquivo);
-                        comando.ExecuteNonQuery();    
+                        // ConfigurarParametros(comando, arquivo);
+                        comando.ExecuteNonQuery();
                     }
                 }
             }
             catch (Exception ex)
             {
-               // throw;
+                // throw;
+                
             }
         }
 
-    
+        public void excluirFuncionario(int idFuncionario)
+        {
+            using (var conexao = AbrirConexao())
+            {
+                try
+                {
+                    using (var comando = conexao.CreateCommand())
+                    {
+                        conexao.Open();
+                        comando.Connection = conexao;
+                        comando.CommandText = $"DELETE FROM tblfuncionario WHERE iIdFuncionario = {idFuncionario}";
+                        comando.ExecuteNonQuery();
+                        comando.Dispose();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Erro ao excluir os arquivos: " + ex.Message);
+                }
+                finally
+                {
+                    conexao.Close();
+                }
+            }
+        }
+
+        //public string buscaFunciorario( string nome)
+        //{
+        //    using (var conexao = AbrirConexao())
+        //    {
+        //        conexao.Open();
+        //        string query = $"SELECT top 1 Nome  FROM  VW_DADOS_FUNCIONARIO where Nome like " +
+        //            $"'%{nome}%'";
+        //        DataTable dados = new DataTable();
+        //        SqlDataAdapter adaptador = new SqlDataAdapter(query, strConection);
+        //        adaptador.Fill(dados);
+        //    //    return dados.Columns['']
+        //    }
+        //}
+
+
     }
 
 
