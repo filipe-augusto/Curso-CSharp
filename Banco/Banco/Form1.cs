@@ -118,12 +118,12 @@ namespace Banco
 
             try
             {
-                txtNome.Text = dataView.Rows[e.RowIndex].Cells["vNomeFuncionario"].Value.ToString();
-                txtSalario.Text = dataView.Rows[e.RowIndex].Cells["dSalario"].Value.ToString();
-                txtIdade.Value = Convert.ToInt32(dataView.Rows[e.RowIndex].Cells["iIdade"].Value.ToString());
+                txtNome.Text = dataView.Rows[e.RowIndex].Cells["Nome"].Value.ToString();
+                txtSalario.Text = dataView.Rows[e.RowIndex].Cells["Salario"].Value.ToString();
+                txtIdade.Value = Convert.ToInt32(dataView.Rows[e.RowIndex].Cells["Idade"].Value.ToString());
                 panelAdd.Visible = true;
 
-                int id = Convert.ToInt32(dataView.Rows[e.RowIndex].Cells["iIdFuncionario"].Value.ToString());
+                int id = Convert.ToInt32(dataView.Rows[e.RowIndex].Cells["Id"].Value.ToString());
                 if (dataView.Columns[e.ColumnIndex] == dataView.Columns["btnExcluir"])
                 {
 

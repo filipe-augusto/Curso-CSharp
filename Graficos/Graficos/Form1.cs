@@ -20,14 +20,18 @@ namespace Graficos
         }
 
         Dictionary<double, double> valores;
-
+        int contadorX = 0;
 
         private void btnLimparGraficos_Click(object sender, EventArgs e)
         {
-           
+            valores.Clear();
+            grafico.Series[0].Points.Clear();
+            dataGridView1.Rows.Clear();
+            contadorX = 0;
+            txtValorX.Text = "";
+            txtValorY.Text = "";
+            txtValorX.Focus();
         }
-
-  
 
         private void btnInserir_Click(object sender, EventArgs e)
         {
@@ -47,26 +51,40 @@ namespace Graficos
 
             dataGridView1.Rows.Clear();
             grafico.Series[0].Points.Clear();
-        }
+            var items = from valor in valores orderby valor.Key ascending select valor;
 
+
+
+            foreach (var item in items)
+            {
+                dataGridView1.Rows.Add(item.Key, item.Value);
+                grafico.Series[0].Points.AddXY(item.Key, item.Value);
+            }
+            grafico.Update();
+            txtValorX.Text = "";
+            txtValorY.Text = "";
+            txtValorX.Focus();
+        }
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
+            txtValorX.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
+            txtValorY.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[1].Value.ToString();
 
         }
 
         private void tipoGrafico_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            grafico.Series[0].ChartType = (SeriesChartType)tipoGrafico.SelectedItem;
         }
 
         private void palleteCor_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            grafico.Palette = (ChartColorPalette)palleteCor.SelectedItem;
         }
 
         private void grafico3D_CheckedChanged(object sender, EventArgs e)
         {
-
+            grafico.ChartAreas[0].Area3DStyle.Enable3D = grafico3D.Checked;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -101,6 +119,24 @@ namespace Graficos
             {
                 e.Handled = true;
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (grafico.Series[0].Points.Count() > 10)
+            {
+                grafico.Series[0].Points.RemoveAt(0);
+                grafico.Update();
+            }
+            double y = (double)new Random((int)DateTime.Now.Ticks).Next(1000);
+            grafico.Series[0].Points.AddXY(contadorX++, y);
+            dataGridView1.Rows.Add(contadorX, y);
+            dataGridView1.CurrentCell = dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells[0];
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            timer1.Enabled = !timer1.Enabled;
         }
     }
 }
