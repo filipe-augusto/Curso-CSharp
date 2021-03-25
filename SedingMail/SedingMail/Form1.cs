@@ -17,7 +17,7 @@ namespace SedingMail
         {
             InitializeComponent();
         }
-
+        ConexaoBanco banco;
         private void btnSendMail_Click(object sender, EventArgs e)
         {
 
@@ -27,7 +27,7 @@ namespace SedingMail
                 try
                 {
                     mail.From = new MailAddress("augusto.2021.pix@gmail.com");
-                    mail.To.Add("filipe@mxlog.com.br");
+                    mail.To.Add("f04a07s19c93@gmail.com.br");
                     mail.Subject = "teste seding mail";
                     mail.Body = CorpoEmailAitorizacao_Contrato();
                     mail.IsBodyHtml = true;
@@ -55,6 +55,20 @@ namespace SedingMail
         }
         private string CorpoEmailAitorizacao_Contrato()
         {
+            Dictionary<string, double> itens = new Dictionary<string, double>()
+            { { "Imposto da empresa.", 506.50},  {"Bonus funcionario.",1000.50}, {"entregas emergencias", 880}
+            };
+            foreach (DataRow dtrow in ConexaoBanco.Tables[0].Rows)
+            {
+                lista.Add(dtrow);
+                //exibe os registros no listbox
+                lstDataSetArrayList.Items.Add(dtrow.ItemArray[0] + " # " + dtrow.ItemArray[1] + " # " + dtrow.ItemArray[2]);
+            }
+
+            // itens.Add("Festa para terceiros", 2056.51);
+
+
+
             StringBuilder corpoEmail = new StringBuilder();
             // MessageBox.Show(Nome_cliente + "c: " + CodRelacao + "dI: " + Data_ini + "dT: " + dataTermino);
 
@@ -64,7 +78,7 @@ namespace SedingMail
             corpoEmail.Append("<meta charset=\"UTF - 8\">");
             corpoEmail.AppendLine(" <style>");
             corpoEmail.AppendLine("table {font-family: arial, sans-serif;border-collapse: collapse;width: 100%;}");
-            corpoEmail.AppendLine("th{background-color:rgb(0, 61, 85);color: white;}");
+            corpoEmail.AppendLine("th, caption{background-color:rgb(0, 61, 85);color: white;}");
             corpoEmail.AppendLine(".mxtd, th {border: 1px solid #dddddd;text-align: left;padding: 8px;}");
             corpoEmail.Append("tr:nth-child(even) {background-color: #dddddd;}");
             corpoEmail.AppendLine(" </style>");
@@ -85,14 +99,17 @@ namespace SedingMail
             corpoEmail.AppendLine("<table>");
             corpoEmail.AppendLine("<caption>Itens da Nota Fiscal</caption>");
             corpoEmail.AppendLine("<tr><th>Descrição</th><th>Valor</th></tr>");
-            for (int i = 0; i < 3; i++)
+            //for (int i = 0; i < 3; i++)
+            //{
+            //corpoEmail.AppendLine($"<tr><td class=\"mxtd\">Moto dia  {i}</td><td class=\"mxtd\">R{i*2}</td></tr>");
+            //}
+            foreach (KeyValuePair<string, double> item in itens)
             {
-            corpoEmail.AppendLine($"<tr><td class=\"mxtd\">Moto dia  {i}</td><td class=\"mxtd\">R{i*2}</td></tr>");
+            corpoEmail.AppendLine($"<tr><td class=\"mxtd\">Moto dia  {item.Key}</td><td class=\"mxtd\">R${item.Value}</td></tr>");
             }
             corpoEmail.AppendLine("</table>");
-
             //fim tabela
-            corpoEmail.AppendLine("<p style = \"text-align: center; font-size: 10px;\">");
+            corpoEmail.AppendLine("<p style = \"text-align: center; font-size: 14px;\">");
             if (DateTime.Now.Hour >= 12)
             {
             corpoEmail.AppendLine("Boa Tarde, <strong>@CLIENTE</strong>");
@@ -103,7 +120,7 @@ namespace SedingMail
             }
             corpoEmail.AppendLine("</p>");
 
-            corpoEmail.AppendLine("<p style = \"text - align: center; font - size: 10px; \">");
+            corpoEmail.AppendLine("<p style = \"text-align: center; font-size: 14px; \">");
             
             corpoEmail.AppendLine("Segue valores do serviço de contrato para aprovação do faturamento do per&iacute;odo @DT_INICIO a @DT_TERMINO </p>");
             corpoEmail.AppendLine("</tr>");
@@ -115,7 +132,7 @@ namespace SedingMail
             corpoEmail.AppendLine("</tr>");
             corpoEmail.AppendLine("<tr style =\"height: 8.23334px;\">");
             corpoEmail.AppendLine("<td style =\"padding: 10px; color: #555555; font-family: Arial, sans-serif; font-size: 12px; line-height: 18px; height: 8.23334px;\" align =\"center\" bgcolor =\"#ffffff\">");
-            corpoEmail.AppendLine("<table style =\"height: 75px; width: 487px;\">");
+            corpoEmail.AppendLine("<table style =\"height: 50px; width: 487px;\">");
             corpoEmail.AppendLine("<tbody>");
             corpoEmail.AppendLine("<tr style =\"height: 6px;\">");
             corpoEmail.AppendLine("<td style =\"text-align: center; width: 173; height: 6;\" align =\"center\" bgcolor =\"#003d55\"><strong><a style =\"color: #ffffff; text-align: center; text-decoration: none;\" href =\"https://www.mxlog.com.br/Autorizacao_Faturamento.aspx?Cod_Relacao=@CodRelacao\">Aprovar</a></strong></td>");

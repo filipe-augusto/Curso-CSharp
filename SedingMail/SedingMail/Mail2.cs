@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using System.Net.Mail;
-using S22.Imap;
+//using S22.Imap;
 
 
 namespace SedingMail
@@ -53,37 +53,37 @@ namespace SedingMail
 
         private void btnReceive_Click(object sender, EventArgs e)
         {
-            StartReceive();
+            //StartReceive();
         }
 
-        private void StartReceive()
-        {
-            Task.Run(() =>
-            {
-                using (ImapClient client = new ImapClient("imap.gmail.com", 993, txtMail.Text,
-                    txtPass.Text, AuthMethod.Login, true))
-                {
-                    if (client.Supports("IDLE") == false)
-                    {
-                        MessageBox.Show("Server does not support IMAP IDLE");
-                        return;
-                    }
-                    client.NewMessage += new EventHandler<IdleMessageEventArgs>(OnNotifyMessage);
-                    while (true) ;
-                }
-            });
-        }
-        static void OnNotifyMessage(object sender, IdleMessageEventArgs e)
-        {
-            MessageBox.Show("New message received!");
-            MailMessage m = e.Client.GetMessage(e.MessageUID, FetchOptions.Normal);
-            f.Invoke((MethodInvoker)delegate
-            {
-                f.txtReceive.AppendText("From: " + m.From .DisplayName+ "\n"+
-                                            "Subject: "+ m.Subject + "\n"+
-                                            "Body: "+ m.Body + "\n");
-            });
+        //private void StartReceive()
+        //{
+        //    Task.Run(() =>
+        //    {
+        //        using (ImapClient client = new ImapClient("imap.gmail.com", 993, txtMail.Text,
+        //            txtPass.Text, AuthMethod.Login, true))
+        //        {
+        //            if (client.Supports("IDLE") == false)
+        //            {
+        //                MessageBox.Show("Server does not support IMAP IDLE");
+        //                return;
+        //            }
+        //            client.NewMessage += new EventHandler<IdleMessageEventArgs>(OnNotifyMessage);
+        //            while (true) ;
+        //        }
+        //    });
+        //}
+        //static void OnNotifyMessage(object sender, IdleMessageEventArgs e)
+        //{
+        //    MessageBox.Show("New message received!");
+        //    MailMessage m = e.Client.GetMessage(e.MessageUID, FetchOptions.Normal);
+        //    f.Invoke((MethodInvoker)delegate
+        //    {
+        //        f.txtReceive.AppendText("From: " + m.From .DisplayName+ "\n"+
+        //                                    "Subject: "+ m.Subject + "\n"+
+        //                                    "Body: "+ m.Body + "\n");
+        //    });
             
-        }
+        //}
     }
 }
