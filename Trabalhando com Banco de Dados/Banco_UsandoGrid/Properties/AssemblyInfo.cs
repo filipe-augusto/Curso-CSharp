@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MeuApp")]
+[assembly: AssemblyTitle("Banco_UsandoGrid")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MeuApp")]
+[assembly: AssemblyProduct("Banco_UsandoGrid")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("00afad43-6456-41d2-9863-1afadedf9f10")]
+[assembly: Guid("5bc2ce1d-e829-48b4-a4da-e2d26d212791")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -31,9 +31,6 @@ namespace Teste
             listBox.Items.Add("Dividir: " + Matematica.Dividir());
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
+    
     }
 }
