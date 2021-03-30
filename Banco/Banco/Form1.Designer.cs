@@ -290,7 +290,7 @@ namespace Banco
             // 
             this.btnExcluir.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.btnExcluir.HeaderText = "";
-            this.btnExcluir.Image = global::Banco.Properties.Resources.excluir;
+           this.btnExcluir.Image = global::Banco.Properties.Resources.excluir;
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.btnExcluir.ToolTipText = "Clique para excluir";
