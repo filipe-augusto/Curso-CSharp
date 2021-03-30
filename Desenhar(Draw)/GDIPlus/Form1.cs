@@ -57,18 +57,18 @@ namespace GDIPlus
             //desenhador.DrawLines(lapis2, pontos);
             #endregion
             #region Retangulos
-            //Pen lapis1 = new Pen(Color.Black, 5);
-            //Pen lapis2 = new Pen(Color.Blue, 20);
-            //Rectangle rect1 = new Rectangle(100, 50, 300, 200);//pont x, pont y, width, height
-            //Rectangle rect2= new Rectangle(50, 850,120 ,2400);//pont x, pont y, width, height
-            //Rectangle rect3= new Rectangle(120, 20, 145, 100);//pont x, pont y, width, height
-            //Rectangle rect4= new Rectangle(75, 200, 250, 100);//pont x, pont y, width, height
+            Pen lapis1 = new Pen(Color.Black, 5);
+            Pen lapis2 = new Pen(Color.Blue, 20);
+            Rectangle rect1 = new Rectangle(100, 50, 300, 200);//pont x, pont y, width, height
+            Rectangle rect2 = new Rectangle(50, 850, 120, 2400);//pont x, pont y, width, height
+            Rectangle rect3 = new Rectangle(120, 20, 145, 100);//pont x, pont y, width, height
+            Rectangle rect4 = new Rectangle(75, 200, 250, 100);//pont x, pont y, width, height
 
-            //Rectangle[] rectangulos =
-            // {
-            //    rect1,rect2, rect3,rect4, new Rectangle(10,30,240,85)
-            //};
-            //desenhador.DrawRectangles(lapis1, rectangulos);
+            Rectangle[] rectangulos =
+             {
+                rect1,rect2, rect3,rect4, new Rectangle(10,30,240,85)
+            };
+            desenhador.DrawRectangles(lapis1, rectangulos);
 
             ////desenhador.DrawRectangle(lapis1, rect1);
             ////desenhador.DrawRectangle(lapis2, 0, 0, 150, 150);
@@ -177,18 +177,18 @@ namespace GDIPlus
             //desenhador.DrawString(texto,letra, pincel, new Rectangle(10,80,550,300));
             #endregion
             #region Desenhar imagens
-            Image imgOrigem1 = Image.FromFile(Application.StartupPath + @"\imagens\paisagem.jpg");
-            Rectangle origem1 = new Rectangle(0, 0, imgOrigem1.Width, imgOrigem1.Height);
-            Rectangle destino1 = new Rectangle(0, 0, picture.Width, picture.Height);
+            //   Image imgOrigem1 = Image.FromFile(Application.StartupPath + @"\imagens\paisagem.jpg");
+            //   Rectangle origem1 = new Rectangle(0, 0, imgOrigem1.Width, imgOrigem1.Height);
+            //   Rectangle destino1 = new Rectangle(0, 0, picture.Width, picture.Height);
 
-            Image imgOrigem2 = Image.FromFile(Application.StartupPath + @"\imagens\ave2.png");
-            Rectangle origem2 = new Rectangle(0, 0, imgOrigem2.Width, imgOrigem2.Height);
-            Rectangle destino2 = new Rectangle(300, 100, imgOrigem2.Width/2, imgOrigem2.Height/2);
+            //   Image imgOrigem2 = Image.FromFile(Application.StartupPath + @"\imagens\ave2.png");
+            //   Rectangle origem2 = new Rectangle(0, 0, imgOrigem2.Width, imgOrigem2.Height);
+            //   Rectangle destino2 = new Rectangle(300, 100, imgOrigem2.Width/2, imgOrigem2.Height/2);
 
-         desenhador.DrawImage(imgOrigem1, destino1, origem1, GraphicsUnit.Pixel);
-            desenhador.DrawImage(imgOrigem2, destino2, origem2, GraphicsUnit.Pixel);
+            //desenhador.DrawImage(imgOrigem1, destino1, origem1, GraphicsUnit.Pixel);
+            //   desenhador.DrawImage(imgOrigem2, destino2, origem2, GraphicsUnit.Pixel);
 
-       //     desenhador.DrawImage();
+            //     desenhador.DrawImage();
             #endregion
 
 
@@ -196,7 +196,7 @@ namespace GDIPlus
             picture.BackgroundImage = folha;
 
             //salvar o desenho num arquivo
-            folha.Save(@"c:\curso\desenho.jpg",System.Drawing.Imaging.ImageFormat.Jpeg);
+          //  folha.Save(@"c:\curso\desenho.jpg",System.Drawing.Imaging.ImageFormat.Jpeg);
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{00AFAD43-6456-41D2-9863-1AFADEDF9F10}</ProjectGuid>
+    <ProjectGuid>{5BC2CE1D-E829-48B4-A4DA-E2D26D212791}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>MeuApp</RootNamespace>
-    <AssemblyName>MeuApp</AssemblyName>
+    <RootNamespace>Banco_UsandoGrid</RootNamespace>
+    <AssemblyName>Banco_UsandoGrid</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Conexao.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

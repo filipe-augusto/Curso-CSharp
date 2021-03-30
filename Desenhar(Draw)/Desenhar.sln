@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GDIPlus", "GDIPlus\GDIPlus.csproj", "{31BD99AB-0E47-4137-BDA8-38FA4AB293B7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Desenhar", "GDIPlus\Desenhar.csproj", "{31BD99AB-0E47-4137-BDA8-38FA4AB293B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
