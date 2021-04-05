@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5BC2CE1D-E829-48B4-A4DA-E2D26D212791}</ProjectGuid>
+    <ProjectGuid>{827CF431-ADB1-45D0-B8F7-73E79F194CF9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Banco_UsandoGrid</RootNamespace>
-    <AssemblyName>Banco_UsandoGrid</AssemblyName>
+    <RootNamespace>ControleEstoque_Acai</RootNamespace>
+    <AssemblyName>ControleEstoque_Acai</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -53,6 +53,8 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modal\Cardapio.cs" />
+    <Compile Include="Modal\Produto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

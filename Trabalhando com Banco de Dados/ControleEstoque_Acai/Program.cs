@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Banco_UsandoGrid
+namespace ControleEstoque_Acai
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace Banco_UsandoGrid
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new A());
+            Application.Run(new Form1());
         }
     }
 }

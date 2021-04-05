@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Banco_UsandoGrid", "Banco_UsandoGrid.csproj", "{5BC2CE1D-E829-48B4-A4DA-E2D26D212791}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleEstoque_Acai", "ControleEstoque_Acai.csproj", "{827CF431-ADB1-45D0-B8F7-73E79F194CF9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5BC2CE1D-E829-48B4-A4DA-E2D26D212791}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5BC2CE1D-E829-48B4-A4DA-E2D26D212791}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5BC2CE1D-E829-48B4-A4DA-E2D26D212791}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5BC2CE1D-E829-48B4-A4DA-E2D26D212791}.Release|Any CPU.Build.0 = Release|Any CPU
+		{827CF431-ADB1-45D0-B8F7-73E79F194CF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{827CF431-ADB1-45D0-B8F7-73E79F194CF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{827CF431-ADB1-45D0-B8F7-73E79F194CF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{827CF431-ADB1-45D0-B8F7-73E79F194CF9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {8DA002BD-5148-402A-928F-94C15EFB0CDB}
+		SolutionGuid = {9C8AD55E-B426-42B4-8FD7-3ACAF0748933}
 	EndGlobalSection
 EndGlobal
