@@ -1419,3 +1419,28 @@ Thread
             }
         }
     }
+---------------------------------
+BANCO
+        public DataSet descricaoEValorItensNotaFiscal(int cdLanctoNFE, int cdCliente)
+        {
+            StringBuilder sSql = new StringBuilder();
+            DataSet dataset = new DataSet();
+            try {
+                string cmdatasetQL = "SELECT S_Dsc_Descricao, N_Dsc_ValorDescricao  FROM TBL_NotaFiscalClienteItem " +
+                     "WHERE N_Dsc_CodigoLanctoNotaFiscal = " + cdLanctoNFE + " AND N_Dsc_CodigoCliente = " + cdCliente;
+                using (SqlConnection con = new SqlConnection(Dados.StringDeConexao(1)))
+                {
+                    using (SqlCommand cmd = new SqlCommand(cmdatasetQL, con))
+                    {
+                        con.Open();
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        da.Fill(dataset);
+                        return dataset;
+                    }
+                }
+            }catch (Exception ex)
+            {
+                throw new ApplicationException(ex.Message);
+            }
+                //return lista;
+        }
