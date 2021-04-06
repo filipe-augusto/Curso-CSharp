@@ -35,10 +35,10 @@ namespace AtividadeFileAndGrid
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lista = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
             this.caminho = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.lista)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,17 +94,7 @@ namespace AtividadeFileAndGrid
             this.lista.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.lista.Size = new System.Drawing.Size(663, 150);
             this.lista.TabIndex = 2;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.button2.Location = new System.Drawing.Point(646, 9);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 61);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Add";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.lista.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.lista_CellContentClick);
             // 
             // caminho
             // 
@@ -120,6 +110,17 @@ namespace AtividadeFileAndGrid
             // 
             this.Column3.HeaderText = "Tamanho";
             this.Column3.Name = "Column3";
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.button2.Location = new System.Drawing.Point(646, 9);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 61);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Add";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1
             // 

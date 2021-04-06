@@ -34,6 +34,11 @@ namespace AtividadeFileAndGrid
                 lista.Rows.Add(label1.Text, "a", "a");
             label1.Text = "";
         }
+
+        private void lista_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
 
