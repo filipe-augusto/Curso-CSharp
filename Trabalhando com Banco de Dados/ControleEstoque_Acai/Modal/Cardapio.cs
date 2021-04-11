@@ -18,8 +18,5 @@ namespace ControleEstoque_Acai.Modal
         public string NomeAdicional1 { get; set; }
         public string NomeAdicional2 { get; set; }
 
-
-
-
     }
 }

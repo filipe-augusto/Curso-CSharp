@@ -31,6 +31,11 @@ namespace ControleEstoque_Acai
         {
             this.tabVenda = new System.Windows.Forms.TabControl();
             this.tabVendas = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btnVenda = new System.Windows.Forms.Button();
+            this.lblValorTotal = new System.Windows.Forms.Label();
+            this.lblValorTotal2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridViewCardapio = new System.Windows.Forms.DataGridView();
             this.a1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -39,6 +44,15 @@ namespace ControleEstoque_Acai
             this.comboBoxTiposDePagamento = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridViewVendas = new System.Windows.Forms.DataGridView();
+            this.idProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tamanho = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.adicional1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.adicional2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idAdicional1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idAdicional2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.excluir = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabEstoque = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.BtnAdicionar = new System.Windows.Forms.Button();
@@ -62,15 +76,6 @@ namespace ControleEstoque_Acai
             this.progressProduto = new System.Windows.Forms.ProgressBar();
             this.tabFaturamento = new System.Windows.Forms.TabPage();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
-            this.idProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tamanho = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.adicional1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.adicional2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idAdicional1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idAdicional2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.excluir = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabVenda.SuspendLayout();
             this.tabVendas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCardapio)).BeginInit();
@@ -87,7 +92,7 @@ namespace ControleEstoque_Acai
             this.tabVenda.Controls.Add(this.tabVendas);
             this.tabVenda.Controls.Add(this.tabEstoque);
             this.tabVenda.Controls.Add(this.tabFaturamento);
-            this.tabVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabVenda.Location = new System.Drawing.Point(12, 3);
             this.tabVenda.Name = "tabVenda";
             this.tabVenda.SelectedIndex = 0;
@@ -98,27 +103,87 @@ namespace ControleEstoque_Acai
             // 
             // tabVendas
             // 
+            this.tabVendas.Controls.Add(this.textBox1);
+            this.tabVendas.Controls.Add(this.label9);
+            this.tabVendas.Controls.Add(this.btnVenda);
+            this.tabVendas.Controls.Add(this.lblValorTotal);
+            this.tabVendas.Controls.Add(this.lblValorTotal2);
             this.tabVendas.Controls.Add(this.label7);
             this.tabVendas.Controls.Add(this.dataGridViewCardapio);
             this.tabVendas.Controls.Add(this.label8);
             this.tabVendas.Controls.Add(this.comboBoxTiposDePagamento);
             this.tabVendas.Controls.Add(this.label6);
             this.tabVendas.Controls.Add(this.dataGridViewVendas);
-            this.tabVendas.Location = new System.Drawing.Point(4, 27);
+            this.tabVendas.Location = new System.Drawing.Point(4, 29);
             this.tabVendas.Name = "tabVendas";
             this.tabVendas.Padding = new System.Windows.Forms.Padding(3);
-            this.tabVendas.Size = new System.Drawing.Size(768, 465);
+            this.tabVendas.Size = new System.Drawing.Size(768, 463);
             this.tabVendas.TabIndex = 0;
             this.tabVendas.Text = "Vendas";
             this.tabVendas.UseVisualStyleBackColor = true;
             this.tabVendas.Enter += new System.EventHandler(this.tabVendas_Enter);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(23, 405);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(207, 29);
+            this.textBox1.TabIndex = 20;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.label9.Location = new System.Drawing.Point(20, 384);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(65, 20);
+            this.label9.TabIndex = 19;
+            this.label9.Text = "Cliente";
+            // 
+            // btnVenda
+            // 
+            this.btnVenda.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVenda.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnVenda.Location = new System.Drawing.Point(607, 377);
+            this.btnVenda.Name = "btnVenda";
+            this.btnVenda.Size = new System.Drawing.Size(132, 70);
+            this.btnVenda.TabIndex = 17;
+            this.btnVenda.Text = "Confirmar venda";
+            this.btnVenda.UseVisualStyleBackColor = false;
+            this.btnVenda.Click += new System.EventHandler(this.btnVenda_Click);
+            // 
+            // lblValorTotal
+            // 
+            this.lblValorTotal.AutoSize = true;
+            this.lblValorTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValorTotal.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.lblValorTotal.Location = new System.Drawing.Point(559, 400);
+            this.lblValorTotal.Name = "lblValorTotal";
+            this.lblValorTotal.Size = new System.Drawing.Size(25, 25);
+            this.lblValorTotal.TabIndex = 16;
+            this.lblValorTotal.Text = "0";
+            this.lblValorTotal.Click += new System.EventHandler(this.lblValorTotal_Click);
+            // 
+            // lblValorTotal2
+            // 
+            this.lblValorTotal2.AutoSize = true;
+            this.lblValorTotal2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValorTotal2.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.lblValorTotal2.Location = new System.Drawing.Point(663, 173);
+            this.lblValorTotal2.Name = "lblValorTotal2";
+            this.lblValorTotal2.Size = new System.Drawing.Size(25, 25);
+            this.lblValorTotal2.TabIndex = 15;
+            this.lblValorTotal2.Text = "0";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label7.Location = new System.Drawing.Point(29, 173);
+            this.label7.Location = new System.Drawing.Point(24, 189);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(107, 25);
             this.label7.TabIndex = 14;
@@ -132,13 +197,12 @@ namespace ControleEstoque_Acai
             this.dataGridViewCardapio.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.a1,
             this.a2});
-            this.dataGridViewCardapio.Location = new System.Drawing.Point(23, 201);
+            this.dataGridViewCardapio.Location = new System.Drawing.Point(23, 217);
             this.dataGridViewCardapio.Name = "dataGridViewCardapio";
             this.dataGridViewCardapio.RowHeadersVisible = false;
             this.dataGridViewCardapio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewCardapio.Size = new System.Drawing.Size(716, 149);
+            this.dataGridViewCardapio.Size = new System.Drawing.Size(716, 133);
             this.dataGridViewCardapio.TabIndex = 13;
-            this.dataGridViewCardapio.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCardapio_CellContentClick);
             this.dataGridViewCardapio.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCardapio_CellDoubleClick);
             // 
             // a1
@@ -160,20 +224,22 @@ namespace ControleEstoque_Acai
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(458, 380);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.label8.Location = new System.Drawing.Point(248, 377);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(143, 18);
+            this.label8.Size = new System.Drawing.Size(172, 20);
             this.label8.TabIndex = 11;
             this.label8.Text = "Tipos de pagamento";
             // 
             // comboBoxTiposDePagamento
             // 
+            this.comboBoxTiposDePagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxTiposDePagamento.FormattingEnabled = true;
-            this.comboBoxTiposDePagamento.Location = new System.Drawing.Point(461, 401);
+            this.comboBoxTiposDePagamento.Location = new System.Drawing.Point(248, 402);
             this.comboBoxTiposDePagamento.Name = "comboBoxTiposDePagamento";
-            this.comboBoxTiposDePagamento.Size = new System.Drawing.Size(278, 26);
+            this.comboBoxTiposDePagamento.Size = new System.Drawing.Size(278, 28);
             this.comboBoxTiposDePagamento.TabIndex = 10;
-            this.comboBoxTiposDePagamento.SelectedIndexChanged += new System.EventHandler(this.comboBoxTiposDePagamento_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -202,22 +268,73 @@ namespace ControleEstoque_Acai
             this.idAdicional1,
             this.idAdicional2,
             this.excluir});
+            this.dataGridViewVendas.GridColor = System.Drawing.Color.DarkSlateBlue;
             this.dataGridViewVendas.Location = new System.Drawing.Point(23, 39);
             this.dataGridViewVendas.Name = "dataGridViewVendas";
             this.dataGridViewVendas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewVendas.Size = new System.Drawing.Size(716, 131);
             this.dataGridViewVendas.TabIndex = 0;
             this.dataGridViewVendas.Tag = "";
+            this.dataGridViewVendas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewVendas_CellContentClick);
+            // 
+            // idProduto
+            // 
+            this.idProduto.HeaderText = "ID";
+            this.idProduto.Name = "idProduto";
+            // 
+            // nome
+            // 
+            this.nome.HeaderText = "Nome";
+            this.nome.Name = "nome";
+            // 
+            // tamanho
+            // 
+            this.tamanho.HeaderText = "Tamanho";
+            this.tamanho.Name = "tamanho";
+            // 
+            // valor
+            // 
+            this.valor.HeaderText = "Valor";
+            this.valor.Name = "valor";
+            // 
+            // adicional1
+            // 
+            this.adicional1.HeaderText = "Adicional 1";
+            this.adicional1.Name = "adicional1";
+            // 
+            // adicional2
+            // 
+            this.adicional2.HeaderText = "Adicional 2";
+            this.adicional2.Name = "adicional2";
+            // 
+            // idAdicional1
+            // 
+            this.idAdicional1.HeaderText = "idAdicional1";
+            this.idAdicional1.Name = "idAdicional1";
+            this.idAdicional1.Visible = false;
+            // 
+            // idAdicional2
+            // 
+            this.idAdicional2.HeaderText = "idAdicional2";
+            this.idAdicional2.Name = "idAdicional2";
+            this.idAdicional2.Visible = false;
+            // 
+            // excluir
+            // 
+            this.excluir.HeaderText = "Excluir";
+            this.excluir.Name = "excluir";
+            this.excluir.Text = "Excluir";
+            this.excluir.UseColumnTextForButtonValue = true;
             // 
             // tabEstoque
             // 
             this.tabEstoque.Controls.Add(this.groupBox1);
             this.tabEstoque.Controls.Add(this.dataGridViewEstoque);
             this.tabEstoque.Controls.Add(this.gBoxRecarregar);
-            this.tabEstoque.Location = new System.Drawing.Point(4, 27);
+            this.tabEstoque.Location = new System.Drawing.Point(4, 29);
             this.tabEstoque.Name = "tabEstoque";
             this.tabEstoque.Padding = new System.Windows.Forms.Padding(3);
-            this.tabEstoque.Size = new System.Drawing.Size(768, 465);
+            this.tabEstoque.Size = new System.Drawing.Size(768, 463);
             this.tabEstoque.TabIndex = 1;
             this.tabEstoque.Text = "Estoque";
             this.tabEstoque.UseVisualStyleBackColor = true;
@@ -273,7 +390,7 @@ namespace ControleEstoque_Acai
             // 
             this.txtaMaximaNovo.Location = new System.Drawing.Point(249, 106);
             this.txtaMaximaNovo.Name = "txtaMaximaNovo";
-            this.txtaMaximaNovo.Size = new System.Drawing.Size(174, 24);
+            this.txtaMaximaNovo.Size = new System.Drawing.Size(174, 26);
             this.txtaMaximaNovo.TabIndex = 4;
             this.txtaMaximaNovo.Text = "0";
             // 
@@ -281,7 +398,7 @@ namespace ControleEstoque_Acai
             // 
             this.txtQuantidadeProdutoNovo.Location = new System.Drawing.Point(16, 106);
             this.txtQuantidadeProdutoNovo.Name = "txtQuantidadeProdutoNovo";
-            this.txtQuantidadeProdutoNovo.Size = new System.Drawing.Size(211, 24);
+            this.txtQuantidadeProdutoNovo.Size = new System.Drawing.Size(211, 26);
             this.txtQuantidadeProdutoNovo.TabIndex = 2;
             // 
             // label3
@@ -298,7 +415,7 @@ namespace ControleEstoque_Acai
             // 
             this.txtNomeProdutoNovo.Location = new System.Drawing.Point(16, 46);
             this.txtNomeProdutoNovo.Name = "txtNomeProdutoNovo";
-            this.txtNomeProdutoNovo.Size = new System.Drawing.Size(288, 24);
+            this.txtNomeProdutoNovo.Size = new System.Drawing.Size(288, 26);
             this.txtNomeProdutoNovo.TabIndex = 0;
             // 
             // dataGridViewEstoque
@@ -336,7 +453,7 @@ namespace ControleEstoque_Acai
             this.maximo.AutoSize = true;
             this.maximo.Location = new System.Drawing.Point(26, 68);
             this.maximo.Name = "maximo";
-            this.maximo.Size = new System.Drawing.Size(16, 18);
+            this.maximo.Size = new System.Drawing.Size(19, 20);
             this.maximo.TabIndex = 7;
             this.maximo.Text = "0";
             this.maximo.Visible = false;
@@ -346,7 +463,7 @@ namespace ControleEstoque_Acai
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(581, 68);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(16, 18);
+            this.label2.Size = new System.Drawing.Size(19, 20);
             this.label2.TabIndex = 5;
             this.label2.Text = "g";
             // 
@@ -356,7 +473,7 @@ namespace ControleEstoque_Acai
             this.lblQuantidadeRecarregada.ForeColor = System.Drawing.Color.DarkRed;
             this.lblQuantidadeRecarregada.Location = new System.Drawing.Point(532, 61);
             this.lblQuantidadeRecarregada.Name = "lblQuantidadeRecarregada";
-            this.lblQuantidadeRecarregada.Size = new System.Drawing.Size(16, 18);
+            this.lblQuantidadeRecarregada.Size = new System.Drawing.Size(19, 20);
             this.lblQuantidadeRecarregada.TabIndex = 6;
             this.lblQuantidadeRecarregada.Text = "0";
             // 
@@ -384,7 +501,7 @@ namespace ControleEstoque_Acai
             // 
             this.txtSimulacao.Location = new System.Drawing.Point(21, 6);
             this.txtSimulacao.Name = "txtSimulacao";
-            this.txtSimulacao.Size = new System.Drawing.Size(110, 24);
+            this.txtSimulacao.Size = new System.Drawing.Size(110, 26);
             this.txtSimulacao.TabIndex = 3;
             // 
             // label1
@@ -392,7 +509,7 @@ namespace ControleEstoque_Acai
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(133, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 18);
+            this.label1.Size = new System.Drawing.Size(68, 20);
             this.label1.TabIndex = 4;
             this.label1.Text = "gramas";
             // 
@@ -411,7 +528,7 @@ namespace ControleEstoque_Acai
             this.lblProduto.AutoSize = true;
             this.lblProduto.Location = new System.Drawing.Point(23, 28);
             this.lblProduto.Name = "lblProduto";
-            this.lblProduto.Size = new System.Drawing.Size(59, 18);
+            this.lblProduto.Size = new System.Drawing.Size(71, 20);
             this.lblProduto.TabIndex = 1;
             this.lblProduto.Text = "produto";
             // 
@@ -428,69 +545,21 @@ namespace ControleEstoque_Acai
             // 
             // tabFaturamento
             // 
-            this.tabFaturamento.Location = new System.Drawing.Point(4, 27);
+            this.tabFaturamento.Location = new System.Drawing.Point(4, 29);
             this.tabFaturamento.Name = "tabFaturamento";
             this.tabFaturamento.Padding = new System.Windows.Forms.Padding(3);
-            this.tabFaturamento.Size = new System.Drawing.Size(768, 465);
+            this.tabFaturamento.Size = new System.Drawing.Size(768, 463);
             this.tabFaturamento.TabIndex = 2;
             this.tabFaturamento.Text = "Faturamento";
             this.tabFaturamento.UseVisualStyleBackColor = true;
-            // 
-            // idProduto
-            // 
-            this.idProduto.HeaderText = "ID";
-            this.idProduto.Name = "idProduto";
-            // 
-            // nome
-            // 
-            this.nome.HeaderText = "Nome";
-            this.nome.Name = "nome";
-            // 
-            // tamanho
-            // 
-            this.tamanho.HeaderText = "Tamanho";
-            this.tamanho.Name = "tamanho";
-            // 
-            // valor
-            // 
-            this.valor.HeaderText = "Valor";
-            this.valor.Name = "valor";
-            // 
-            // adicional1
-            // 
-            this.adicional1.HeaderText = "Adicional 1";
-            this.adicional1.Name = "adicional1";
-            // 
-            // adicional2
-            // 
-            this.adicional2.HeaderText = "Adicional 2";
-            this.adicional2.Name = "adicional2";
-            // 
-            // idAdicional1
-            // 
-            this.idAdicional1.HeaderText = "idAdicional1";
-            this.idAdicional1.Name = "idAdicional1";
-            this.idAdicional1.Visible = false;
-            // 
-            // idAdicional2
-            // 
-            this.idAdicional2.HeaderText = "idAdicional2";
-            this.idAdicional2.Name = "idAdicional2";
-            this.idAdicional2.Visible = false;
-            // 
-            // excluir
-            // 
-            this.excluir.HeaderText = "Excluir";
-            this.excluir.Name = "excluir";
-            this.excluir.Text = "Excluir";
-            this.excluir.UseColumnTextForButtonValue = true;
             // 
             // Form1
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 501);
+            this.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.ClientSize = new System.Drawing.Size(800, 512);
             this.Controls.Add(this.tabVenda);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
@@ -555,6 +624,11 @@ namespace ControleEstoque_Acai
         private System.Windows.Forms.DataGridViewTextBoxColumn idAdicional1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idAdicional2;
         private System.Windows.Forms.DataGridViewButtonColumn excluir;
+        private System.Windows.Forms.Label lblValorTotal;
+        private System.Windows.Forms.Label lblValorTotal2;
+        private System.Windows.Forms.Button btnVenda;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label9;
     }
 }
 
