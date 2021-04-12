@@ -24,7 +24,7 @@ namespace ControleEstoque_Acai
 
         private void tabVenda_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
             //dataGridViewEstoque.Rows[e.RowIndex].Cells["id"].Value.ToString()
         }
         #region Estoque  
@@ -93,15 +93,15 @@ namespace ControleEstoque_Acai
         {
             if (String.IsNullOrEmpty(txtSimulacao.Text))
             {
-                MessageBox.Show("Digite um valor para continuar","Atenção",MessageBoxButtons.OK);
+                MessageBox.Show("Digite um valor para continuar", "Atenção", MessageBoxButtons.OK);
                 txtSimulacao.Focus();
                 return;
             }
-            if(Convert.ToInt32(lblQuantidadeRecarregada.Text) == produto.PesoMaximo)
+            if (Convert.ToInt32(lblQuantidadeRecarregada.Text) == produto.PesoMaximo)
             {
                 MessageBox.Show("não é possivel adicoinar mais valores", "Atenção", MessageBoxButtons.OK);
                 txtSimulacao.Text = "";
-               
+
                 return;
             }
 
@@ -124,7 +124,7 @@ namespace ControleEstoque_Acai
                 }
 
                 progressProduto.Value = (total * 100) / Convert.ToInt32(maximo.Text);
-               // mudarCorProgressBar(progressProduto.Value);
+                // mudarCorProgressBar(progressProduto.Value);
                 lblQuantidadeRecarregada.Text = total.ToString();
                 txtSimulacao.Text = "";
             }
@@ -252,7 +252,7 @@ namespace ControleEstoque_Acai
             comboBoxTiposDePagamento.DisplayMember = "nomePagamento";
             comboBoxTiposDePagamento.ValueMember = "id";
             comboBoxTiposDePagamento.DataSource = conexao.selectFormaDePagamento();
-    
+
         }
 
         private void tabVendas_Enter(object sender, EventArgs e)
@@ -264,44 +264,81 @@ namespace ControleEstoque_Acai
 
         #endregion
 
-        private void comboBoxTiposDePagamento_SelectedIndexChanged(object sender, EventArgs e)
-        {
-         
-        }
+     
 
         private void dataGridViewCardapio_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
             try
             {
-                //if (Convert.ToInt32(dataGridViewCardapio.Rows[e.RowIndex].Index) == 0)
-                //{
-                //    return;
-                //}
                 cardapio.idProduto = Convert.ToInt32(dataGridViewCardapio.Rows[e.RowIndex].Cells["Codigo"].Value.ToString());
                 cardapio.NomeItem = (dataGridViewCardapio.Rows[e.RowIndex].Cells["Nome"].Value.ToString());
                 cardapio.Valor = Convert.ToInt32(dataGridViewCardapio.Rows[e.RowIndex].Cells["Valor"].Value.ToString());
                 cardapio.Tamanho = dataGridViewCardapio.Rows[e.RowIndex].Cells["Tamanho"].Value.ToString();
                 cardapio.LitrosAcai = Convert.ToInt32(dataGridViewCardapio.Rows[e.RowIndex].Cells["mL"].Value.ToString());
-                cardapio.IdAdicional1 = dataGridViewCardapio.Rows[e.RowIndex].Cells[0].Value.ToString();
-                cardapio.IdAdicional2 = dataGridViewCardapio.Rows[e.RowIndex].Cells[1].Value.ToString();
+                cardapio.IdAdicional1 =  dataGridViewCardapio.Rows[e.RowIndex].Cells[0].Value.ToString();
+                cardapio.IdAdicional2 =  dataGridViewCardapio.Rows[e.RowIndex].Cells[1].Value.ToString();
                 cardapio.NomeAdicional1 = (dataGridViewCardapio.Rows[e.RowIndex].Cells["a1"] as DataGridViewComboBoxCell).FormattedValue.ToString();
                 cardapio.NomeAdicional2 = (dataGridViewCardapio.Rows[e.RowIndex].Cells["a2"] as DataGridViewComboBoxCell).FormattedValue.ToString();
+                if (string.IsNullOrEmpty(cardapio.NomeAdicional1) || string.IsNullOrEmpty(cardapio.NomeAdicional2))
+                {
+                    if (MessageBox.Show(" Deseja continuar sem os adicionais?", "Adicionar no carrinho ",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        cardapio.NomeAdicional1 = "";
+                        cardapio.NomeAdicional2 = "";
+                        AddCarinho(cardapio);
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+
                 AddCarinho(cardapio);
             }
             catch (Exception ex)
             {
-
-                MessageBox.Show("ERRO:  " + ex);
+                return;
             }
         }
 
         private void AddCarinho(Cardapio c)
         {
-            dataGridViewVendas.Rows.Add(c.idProduto,c.NomeItem,c.Tamanho,c.Valor,c.NomeAdicional1,c.NomeAdicional2,c.IdAdicional1,c.IdAdicional2,"exluir");
+            insereValorTotal(Convert.ToInt32(c.Valor));
+            dataGridViewVendas.Rows.Add(c.idProduto, c.NomeItem, c.Tamanho, c.Valor, c.NomeAdicional1, c.NomeAdicional2, c.IdAdicional1, c.IdAdicional2, "exluir");
         }
 
-        private void dataGridViewCardapio_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        public void insereValorTotal(int valor)
+        {
+            double resultado =Convert.ToDouble(lblValorTotal.Text) + valor;
+            lblValorTotal.Text = resultado.ToString();
+            lblValorTotal2.Text = resultado.ToString();
+        }
+        private void dataGridViewVendas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                int id = Convert.ToInt32(dataGridViewVendas.Rows[e.RowIndex].Cells["idProduto"].Value.ToString());
+                if (dataGridViewVendas.Columns[e.ColumnIndex] == dataGridViewVendas.Columns["excluir"])
+                {
+                    int valorretirado = Convert.ToInt32(dataGridViewVendas.Rows[e.RowIndex].Cells["valor"].Value.ToString());
+                    insereValorTotal(-valorretirado);
+                    dataGridViewVendas.Rows.RemoveAt(e.RowIndex); 
+                }
+            }
+            catch (Exception ex)
+            {
+                return;
+            }
+        }
+
+        private void lblValorTotal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnVenda_Click(object sender, EventArgs e)
         {
 
         }
