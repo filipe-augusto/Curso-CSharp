@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -80,9 +81,12 @@ namespace ClassesImportantes
 
         private void btnDateTime_Click(object sender, EventArgs e)
         {
+            string stringMesCorreto;
+            string month = new CultureInfo("pt-BR").DateTimeFormat.GetMonthName(5);
+           string mesExtenso = char.ToUpper(month[0]) + month.Substring(1);
             //lblResultado.Text = DateTime.Now.ToString();//tempo atual
             //lblResultado.Text = DateTime.Today.ToString();
-            //lblResultado.Text = DateTime.DaysInMonth(2021, 02).ToString();
+            lblResultado.Text = mesExtenso;
             //lblResultado.Text = DateTime.IsLeapYear(2021).ToString();
             //lblResultado.Text = DateTime.Now.ToLongTimeString();
             //lblResultado.Text = DateTime.Now.ToShortTimeString();
@@ -92,12 +96,12 @@ namespace ClassesImportantes
             //lblResultado.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
             // lblResultado.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm"); = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss");
 
-            DateTime data = new DateTime(1993, 07, 04, 00, 00, 30);
-            TimeSpan tempo = new TimeSpan(5, 10, 5, 20);
+            //  DateTime data = new DateTime(1993, 07, 04, 00, 00, 30);
+            //TimeSpan tempo = new TimeSpan(5, 10, 5, 20);
             // lblResultado.Text = data.AddYears(28).ToString();
-            lblResultado.Text = data.Add(tempo).ToString();
-            lblResultado.Text = data.DayOfWeek.ToString();
-           // lblResultado.Text = data.Add(tempo).ToString();
+            // lblResultado.Text = data.Add(tempo).ToString();
+            // lblResultado.Text = data.DayOfWeek.ToString();
+            // lblResultado.Text = data.Add(tempo).ToString();
         }
 
         private void btnColor_Click(object sender, EventArgs e)
