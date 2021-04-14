@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ControleEstoque_Acai.Modal
 {
-    class ItensVendas
+    class Vendas
     {
         public Cardapio Item { get; set; }
         public double ValorTotal { get; set; }
@@ -14,5 +14,7 @@ namespace ControleEstoque_Acai.Modal
         public DateTime DataVenda { get; set; }
         public string Observacao { get; set; }
         public int ModoDePagamento { get; set; }
+        public string statusVenda { get; set; }
+
     }
 }

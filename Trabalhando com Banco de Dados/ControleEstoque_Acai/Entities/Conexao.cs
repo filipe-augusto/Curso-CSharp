@@ -11,7 +11,7 @@ namespace ControleEstoque_Acai.Entities
 {
     class Conexao
     {
-
+        Vendas vendas = new Vendas();
         Produto produto = new Produto();
         static string stringConection = @"Data Source=FILIPE-HPRPE60;Initial Catalog=acai;Integrated Security=True";
         SqlConnection cn = new SqlConnection(stringConection);
@@ -115,9 +115,62 @@ namespace ControleEstoque_Acai.Entities
             }
         }
 
+        public void InsereVenda(Vendas venda, HashSet<ItensPedidos> itens)
+        {
+            int codigovenda = 0;
+            using (var conexao = AbrirConexao())
+            {         
+                conexao.Open();
+                using (var comando = conexao.CreateCommand())
+                {
+                    comando.CommandText = $"INSERT vendas values ({venda.ValorTotal},{venda.ModoDePagamento}," +
+                        $" '{venda.DataVenda}', '{venda.NomeCliente}')";
+                    comando.ExecuteNonQuery();
+                }
+                conexao.Close();
+                using (var C = AbrirConexao())
+                {
+                    C.Open();
+                    string query = $"SELECT TOP 1  codigo FROM " +
+                        $" vendas WHERE  nomeCliente LIKE '{venda.NomeCliente}' and dataVenda = {venda.DataVenda}";
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter adaptador = new SqlDataAdapter(query, stringConection);
+                    adaptador.Fill(dt);
+                    codigovenda = (int)dt.Rows[0][0];
+                }
+                insereItens(itens, codigovenda);
+            }
+        }
 
+        public void insereItens(HashSet<ItensPedidos> itens, int codVenda)
+        {
+
+            using (var conexao = AbrirConexao())
+            {
+                conexao.Open();
+                using (var comando = conexao.CreateCommand())
+                {
+
+                    foreach (var item in itens)
+                    {
+                        comando.CommandText = $"INSERT itensPedidos values ({codVenda},{item.CodigoProdutoAcai},'{item.TipoAcai}'," +
+                                              $" '{item.TamanhoAcai}', {item.CodigoProdutoAdicional1}," +
+                                              $" {item.CodigoProdutoAdicional2}, {item.Valor})";
+                        comando.ExecuteNonQuery();
+
+                    }
+                  
+                }
+                conexao.Close();
+            }
+
+
+
+           
+        }
+    }
     }
 
-}
+
 
 

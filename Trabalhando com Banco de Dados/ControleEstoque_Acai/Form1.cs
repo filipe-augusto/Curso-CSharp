@@ -21,7 +21,7 @@ namespace ControleEstoque_Acai
         Produto produto = new Produto();
         Cardapio cardapio = new Cardapio();
         Conexao conexao = new Conexao();
-
+        Vendas venda = new Vendas(); 
         private void tabVenda_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -268,14 +268,14 @@ namespace ControleEstoque_Acai
 
         private void dataGridViewCardapio_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
             try
-            {
+            {             
                 cardapio.idProduto = Convert.ToInt32(dataGridViewCardapio.Rows[e.RowIndex].Cells["Codigo"].Value.ToString());
                 cardapio.NomeItem = (dataGridViewCardapio.Rows[e.RowIndex].Cells["Nome"].Value.ToString());
                 cardapio.Valor = Convert.ToInt32(dataGridViewCardapio.Rows[e.RowIndex].Cells["Valor"].Value.ToString());
                 cardapio.Tamanho = dataGridViewCardapio.Rows[e.RowIndex].Cells["Tamanho"].Value.ToString();
                 cardapio.LitrosAcai = Convert.ToInt32(dataGridViewCardapio.Rows[e.RowIndex].Cells["mL"].Value.ToString());
+             
                 cardapio.IdAdicional1 =  dataGridViewCardapio.Rows[e.RowIndex].Cells[0].Value.ToString();
                 cardapio.IdAdicional2 =  dataGridViewCardapio.Rows[e.RowIndex].Cells[1].Value.ToString();
                 cardapio.NomeAdicional1 = (dataGridViewCardapio.Rows[e.RowIndex].Cells["a1"] as DataGridViewComboBoxCell).FormattedValue.ToString();
@@ -299,7 +299,7 @@ namespace ControleEstoque_Acai
             }
             catch (Exception ex)
             {
-                return;
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -340,6 +340,19 @@ namespace ControleEstoque_Acai
 
         private void btnVenda_Click(object sender, EventArgs e)
         {
+            //dados vendas
+            venda.NomeCliente = txtNomeCliente.Text;
+            venda.ModoDePagamento = comboBoxTiposDePagamento.SelectedIndex;
+            venda.DataVenda = DateTime.Now;
+            venda.ValorTotal = Convert.ToDouble(lblValorTotal.Text);
+            //dados itens 
+            HashSet<ItensPedidos> itens = new HashSet<ItensPedidos>();
+
+            foreach (DataGridViewRow linha in dataGridViewVendas.Rows)
+            {
+                itens.Add(new ItensPedidos(Convert.ToInt32(linha.Cells[0]), linha.Cells[2].ToString(), Convert.ToInt32(linha.Cells[4]),
+                   Convert.ToInt32(linha.Cells[5]),Convert.ToDouble(linha.Cells[3])));
+            }
 
         }
     }

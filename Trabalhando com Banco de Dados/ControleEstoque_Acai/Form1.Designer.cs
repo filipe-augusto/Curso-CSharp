@@ -29,9 +29,12 @@ namespace ControleEstoque_Acai
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabVenda = new System.Windows.Forms.TabControl();
             this.tabVendas = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNomeCliente = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.btnVenda = new System.Windows.Forms.Button();
             this.lblValorTotal = new System.Windows.Forms.Label();
@@ -96,14 +99,14 @@ namespace ControleEstoque_Acai
             this.tabVenda.Location = new System.Drawing.Point(12, 3);
             this.tabVenda.Name = "tabVenda";
             this.tabVenda.SelectedIndex = 0;
-            this.tabVenda.Size = new System.Drawing.Size(776, 496);
+            this.tabVenda.Size = new System.Drawing.Size(884, 496);
             this.tabVenda.TabIndex = 2;
             this.tabVenda.Tag = "Venda";
             this.tabVenda.SelectedIndexChanged += new System.EventHandler(this.tabVenda_SelectedIndexChanged);
             // 
             // tabVendas
             // 
-            this.tabVendas.Controls.Add(this.textBox1);
+            this.tabVendas.Controls.Add(this.txtNomeCliente);
             this.tabVendas.Controls.Add(this.label9);
             this.tabVendas.Controls.Add(this.btnVenda);
             this.tabVendas.Controls.Add(this.lblValorTotal);
@@ -117,26 +120,26 @@ namespace ControleEstoque_Acai
             this.tabVendas.Location = new System.Drawing.Point(4, 29);
             this.tabVendas.Name = "tabVendas";
             this.tabVendas.Padding = new System.Windows.Forms.Padding(3);
-            this.tabVendas.Size = new System.Drawing.Size(768, 463);
+            this.tabVendas.Size = new System.Drawing.Size(876, 463);
             this.tabVendas.TabIndex = 0;
             this.tabVendas.Text = "Vendas";
             this.tabVendas.UseVisualStyleBackColor = true;
             this.tabVendas.Enter += new System.EventHandler(this.tabVendas_Enter);
             // 
-            // textBox1
+            // txtNomeCliente
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(23, 405);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(207, 29);
-            this.textBox1.TabIndex = 20;
+            this.txtNomeCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomeCliente.Location = new System.Drawing.Point(29, 402);
+            this.txtNomeCliente.Name = "txtNomeCliente";
+            this.txtNomeCliente.Size = new System.Drawing.Size(232, 29);
+            this.txtNomeCliente.TabIndex = 20;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label9.Location = new System.Drawing.Point(20, 384);
+            this.label9.Location = new System.Drawing.Point(19, 378);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 20);
             this.label9.TabIndex = 19;
@@ -147,7 +150,7 @@ namespace ControleEstoque_Acai
             this.btnVenda.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.btnVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVenda.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnVenda.Location = new System.Drawing.Point(607, 377);
+            this.btnVenda.Location = new System.Drawing.Point(727, 378);
             this.btnVenda.Name = "btnVenda";
             this.btnVenda.Size = new System.Drawing.Size(132, 70);
             this.btnVenda.TabIndex = 17;
@@ -160,7 +163,7 @@ namespace ControleEstoque_Acai
             this.lblValorTotal.AutoSize = true;
             this.lblValorTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblValorTotal.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lblValorTotal.Location = new System.Drawing.Point(559, 400);
+            this.lblValorTotal.Location = new System.Drawing.Point(652, 401);
             this.lblValorTotal.Name = "lblValorTotal";
             this.lblValorTotal.Size = new System.Drawing.Size(25, 25);
             this.lblValorTotal.TabIndex = 16;
@@ -191,9 +194,22 @@ namespace ControleEstoque_Acai
             // 
             // dataGridViewCardapio
             // 
+            this.dataGridViewCardapio.AllowUserToAddRows = false;
+            this.dataGridViewCardapio.AllowUserToOrderColumns = true;
             this.dataGridViewCardapio.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewCardapio.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewCardapio.BackgroundColor = System.Drawing.Color.DarkSlateBlue;
-            this.dataGridViewCardapio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCardapio.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridViewCardapio.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewCardapio.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridViewCardapio.ColumnHeadersHeight = 40;
             this.dataGridViewCardapio.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.a1,
             this.a2});
@@ -201,7 +217,7 @@ namespace ControleEstoque_Acai
             this.dataGridViewCardapio.Name = "dataGridViewCardapio";
             this.dataGridViewCardapio.RowHeadersVisible = false;
             this.dataGridViewCardapio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewCardapio.Size = new System.Drawing.Size(716, 133);
+            this.dataGridViewCardapio.Size = new System.Drawing.Size(836, 133);
             this.dataGridViewCardapio.TabIndex = 13;
             this.dataGridViewCardapio.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCardapio_CellDoubleClick);
             // 
@@ -226,7 +242,7 @@ namespace ControleEstoque_Acai
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label8.Location = new System.Drawing.Point(248, 377);
+            this.label8.Location = new System.Drawing.Point(274, 378);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(172, 20);
             this.label8.TabIndex = 11;
@@ -236,9 +252,9 @@ namespace ControleEstoque_Acai
             // 
             this.comboBoxTiposDePagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxTiposDePagamento.FormattingEnabled = true;
-            this.comboBoxTiposDePagamento.Location = new System.Drawing.Point(248, 402);
+            this.comboBoxTiposDePagamento.Location = new System.Drawing.Point(278, 402);
             this.comboBoxTiposDePagamento.Name = "comboBoxTiposDePagamento";
-            this.comboBoxTiposDePagamento.Size = new System.Drawing.Size(278, 28);
+            this.comboBoxTiposDePagamento.Size = new System.Drawing.Size(337, 28);
             this.comboBoxTiposDePagamento.TabIndex = 10;
             // 
             // label6
@@ -255,9 +271,15 @@ namespace ControleEstoque_Acai
             // dataGridViewVendas
             // 
             this.dataGridViewVendas.AllowDrop = true;
+            this.dataGridViewVendas.AllowUserToAddRows = false;
+            this.dataGridViewVendas.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.MidnightBlue;
+            this.dataGridViewVendas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewVendas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewVendas.BackgroundColor = System.Drawing.Color.DarkSlateBlue;
-            this.dataGridViewVendas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewVendas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridViewVendas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridViewVendas.ColumnHeadersHeight = 48;
             this.dataGridViewVendas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idProduto,
             this.nome,
@@ -271,8 +293,18 @@ namespace ControleEstoque_Acai
             this.dataGridViewVendas.GridColor = System.Drawing.Color.DarkSlateBlue;
             this.dataGridViewVendas.Location = new System.Drawing.Point(23, 39);
             this.dataGridViewVendas.Name = "dataGridViewVendas";
+            this.dataGridViewVendas.ReadOnly = true;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.MediumPurple;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Indigo;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.HotPink;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewVendas.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridViewVendas.RowHeadersVisible = false;
             this.dataGridViewVendas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewVendas.Size = new System.Drawing.Size(716, 131);
+            this.dataGridViewVendas.Size = new System.Drawing.Size(836, 131);
             this.dataGridViewVendas.TabIndex = 0;
             this.dataGridViewVendas.Tag = "";
             this.dataGridViewVendas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewVendas_CellContentClick);
@@ -281,48 +313,57 @@ namespace ControleEstoque_Acai
             // 
             this.idProduto.HeaderText = "ID";
             this.idProduto.Name = "idProduto";
+            this.idProduto.ReadOnly = true;
             // 
             // nome
             // 
             this.nome.HeaderText = "Nome";
             this.nome.Name = "nome";
+            this.nome.ReadOnly = true;
             // 
             // tamanho
             // 
             this.tamanho.HeaderText = "Tamanho";
             this.tamanho.Name = "tamanho";
+            this.tamanho.ReadOnly = true;
             // 
             // valor
             // 
             this.valor.HeaderText = "Valor";
             this.valor.Name = "valor";
+            this.valor.ReadOnly = true;
             // 
             // adicional1
             // 
             this.adicional1.HeaderText = "Adicional 1";
             this.adicional1.Name = "adicional1";
+            this.adicional1.ReadOnly = true;
             // 
             // adicional2
             // 
             this.adicional2.HeaderText = "Adicional 2";
             this.adicional2.Name = "adicional2";
+            this.adicional2.ReadOnly = true;
             // 
             // idAdicional1
             // 
             this.idAdicional1.HeaderText = "idAdicional1";
             this.idAdicional1.Name = "idAdicional1";
+            this.idAdicional1.ReadOnly = true;
             this.idAdicional1.Visible = false;
             // 
             // idAdicional2
             // 
             this.idAdicional2.HeaderText = "idAdicional2";
             this.idAdicional2.Name = "idAdicional2";
+            this.idAdicional2.ReadOnly = true;
             this.idAdicional2.Visible = false;
             // 
             // excluir
             // 
             this.excluir.HeaderText = "Excluir";
             this.excluir.Name = "excluir";
+            this.excluir.ReadOnly = true;
             this.excluir.Text = "Excluir";
             this.excluir.UseColumnTextForButtonValue = true;
             // 
@@ -420,10 +461,13 @@ namespace ControleEstoque_Acai
             // 
             // dataGridViewEstoque
             // 
+            this.dataGridViewEstoque.AllowUserToAddRows = false;
+            this.dataGridViewEstoque.AllowUserToDeleteRows = false;
             this.dataGridViewEstoque.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewEstoque.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewEstoque.Location = new System.Drawing.Point(9, 7);
             this.dataGridViewEstoque.Name = "dataGridViewEstoque";
+            this.dataGridViewEstoque.ReadOnly = true;
             this.dataGridViewEstoque.RowHeadersVisible = false;
             this.dataGridViewEstoque.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewEstoque.Size = new System.Drawing.Size(753, 178);
@@ -559,7 +603,7 @@ namespace ControleEstoque_Acai
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.ClientSize = new System.Drawing.Size(800, 512);
+            this.ClientSize = new System.Drawing.Size(908, 512);
             this.Controls.Add(this.tabVenda);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
@@ -627,7 +671,7 @@ namespace ControleEstoque_Acai
         private System.Windows.Forms.Label lblValorTotal;
         private System.Windows.Forms.Label lblValorTotal2;
         private System.Windows.Forms.Button btnVenda;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNomeCliente;
         private System.Windows.Forms.Label label9;
     }
 }

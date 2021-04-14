@@ -54,7 +54,8 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Modal\Cardapio.cs" />
-    <Compile Include="Modal\ItensVendas.cs" />
+    <Compile Include="Modal\ItensPedidos.cs" />
+    <Compile Include="Modal\Vendas.cs" />
     <Compile Include="Modal\Produto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
