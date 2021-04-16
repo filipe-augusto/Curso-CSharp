@@ -9,7 +9,7 @@ namespace ControleEstoque_Acai.Modal
     class Cardapio
     {
         public string NomeItem { get; set; }
-        public  int idProduto { get; set; }
+        public  int IdAcai { get; set; }
         public double Valor { get; set; }
         public int LitrosAcai { get; set; }
         public string IdAdicional1 { get; set; }

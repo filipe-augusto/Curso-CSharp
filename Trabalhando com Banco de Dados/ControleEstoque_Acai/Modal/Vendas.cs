@@ -12,9 +12,8 @@ namespace ControleEstoque_Acai.Modal
         public double ValorTotal { get; set; }
         public string NomeCliente { get; set; }
         public DateTime DataVenda { get; set; }
-        public string Observacao { get; set; }
         public int ModoDePagamento { get; set; }
-        public string statusVenda { get; set; }
+
 
     }
 }

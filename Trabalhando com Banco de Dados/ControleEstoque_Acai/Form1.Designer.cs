@@ -29,9 +29,12 @@ namespace ControleEstoque_Acai
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabVenda = new System.Windows.Forms.TabControl();
             this.tabVendas = new System.Windows.Forms.TabPage();
             this.txtNomeCliente = new System.Windows.Forms.TextBox();
@@ -78,6 +81,13 @@ namespace ControleEstoque_Acai
             this.lblProduto = new System.Windows.Forms.Label();
             this.progressProduto = new System.Windows.Forms.ProgressBar();
             this.tabFaturamento = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.dateTimePicker_INICIO = new System.Windows.Forms.DateTimePicker();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.dateTimePicker_FIM = new System.Windows.Forms.DateTimePicker();
+            this.dataGridView_vendas = new System.Windows.Forms.DataGridView();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.tabVenda.SuspendLayout();
             this.tabVendas.SuspendLayout();
@@ -88,6 +98,9 @@ namespace ControleEstoque_Acai
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEstoque)).BeginInit();
             this.gBoxRecarregar.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.tabFaturamento.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_vendas)).BeginInit();
             this.SuspendLayout();
             // 
             // tabVenda
@@ -99,7 +112,7 @@ namespace ControleEstoque_Acai
             this.tabVenda.Location = new System.Drawing.Point(12, 3);
             this.tabVenda.Name = "tabVenda";
             this.tabVenda.SelectedIndex = 0;
-            this.tabVenda.Size = new System.Drawing.Size(884, 496);
+            this.tabVenda.Size = new System.Drawing.Size(980, 644);
             this.tabVenda.TabIndex = 2;
             this.tabVenda.Tag = "Venda";
             this.tabVenda.SelectedIndexChanged += new System.EventHandler(this.tabVenda_SelectedIndexChanged);
@@ -120,7 +133,7 @@ namespace ControleEstoque_Acai
             this.tabVendas.Location = new System.Drawing.Point(4, 29);
             this.tabVendas.Name = "tabVendas";
             this.tabVendas.Padding = new System.Windows.Forms.Padding(3);
-            this.tabVendas.Size = new System.Drawing.Size(876, 463);
+            this.tabVendas.Size = new System.Drawing.Size(972, 611);
             this.tabVendas.TabIndex = 0;
             this.tabVendas.Text = "Vendas";
             this.tabVendas.UseVisualStyleBackColor = true;
@@ -129,9 +142,9 @@ namespace ControleEstoque_Acai
             // txtNomeCliente
             // 
             this.txtNomeCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeCliente.Location = new System.Drawing.Point(29, 402);
+            this.txtNomeCliente.Location = new System.Drawing.Point(6, 576);
             this.txtNomeCliente.Name = "txtNomeCliente";
-            this.txtNomeCliente.Size = new System.Drawing.Size(232, 29);
+            this.txtNomeCliente.Size = new System.Drawing.Size(279, 29);
             this.txtNomeCliente.TabIndex = 20;
             // 
             // label9
@@ -139,7 +152,7 @@ namespace ControleEstoque_Acai
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label9.Location = new System.Drawing.Point(19, 378);
+            this.label9.Location = new System.Drawing.Point(6, 553);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 20);
             this.label9.TabIndex = 19;
@@ -150,7 +163,7 @@ namespace ControleEstoque_Acai
             this.btnVenda.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.btnVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVenda.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnVenda.Location = new System.Drawing.Point(727, 378);
+            this.btnVenda.Location = new System.Drawing.Point(829, 535);
             this.btnVenda.Name = "btnVenda";
             this.btnVenda.Size = new System.Drawing.Size(132, 70);
             this.btnVenda.TabIndex = 17;
@@ -163,19 +176,18 @@ namespace ControleEstoque_Acai
             this.lblValorTotal.AutoSize = true;
             this.lblValorTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblValorTotal.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lblValorTotal.Location = new System.Drawing.Point(652, 401);
+            this.lblValorTotal.Location = new System.Drawing.Point(726, 558);
             this.lblValorTotal.Name = "lblValorTotal";
             this.lblValorTotal.Size = new System.Drawing.Size(25, 25);
             this.lblValorTotal.TabIndex = 16;
             this.lblValorTotal.Text = "0";
-            this.lblValorTotal.Click += new System.EventHandler(this.lblValorTotal_Click);
             // 
             // lblValorTotal2
             // 
             this.lblValorTotal2.AutoSize = true;
             this.lblValorTotal2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblValorTotal2.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lblValorTotal2.Location = new System.Drawing.Point(663, 173);
+            this.lblValorTotal2.Location = new System.Drawing.Point(926, 11);
             this.lblValorTotal2.Name = "lblValorTotal2";
             this.lblValorTotal2.Size = new System.Drawing.Size(25, 25);
             this.lblValorTotal2.TabIndex = 15;
@@ -186,7 +198,7 @@ namespace ControleEstoque_Acai
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label7.Location = new System.Drawing.Point(24, 189);
+            this.label7.Location = new System.Drawing.Point(24, 276);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(107, 25);
             this.label7.TabIndex = 14;
@@ -201,23 +213,23 @@ namespace ControleEstoque_Acai
             this.dataGridViewCardapio.BackgroundColor = System.Drawing.Color.DarkSlateBlue;
             this.dataGridViewCardapio.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewCardapio.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.MidnightBlue;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewCardapio.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewCardapio.ColumnHeadersHeight = 40;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewCardapio.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            this.dataGridViewCardapio.ColumnHeadersHeight = 30;
             this.dataGridViewCardapio.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.a1,
             this.a2});
-            this.dataGridViewCardapio.Location = new System.Drawing.Point(23, 217);
+            this.dataGridViewCardapio.Location = new System.Drawing.Point(23, 304);
             this.dataGridViewCardapio.Name = "dataGridViewCardapio";
             this.dataGridViewCardapio.RowHeadersVisible = false;
             this.dataGridViewCardapio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewCardapio.Size = new System.Drawing.Size(836, 133);
+            this.dataGridViewCardapio.Size = new System.Drawing.Size(938, 213);
             this.dataGridViewCardapio.TabIndex = 13;
             this.dataGridViewCardapio.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCardapio_CellDoubleClick);
             // 
@@ -242,7 +254,7 @@ namespace ControleEstoque_Acai
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label8.Location = new System.Drawing.Point(274, 378);
+            this.label8.Location = new System.Drawing.Point(296, 553);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(172, 20);
             this.label8.TabIndex = 11;
@@ -252,9 +264,9 @@ namespace ControleEstoque_Acai
             // 
             this.comboBoxTiposDePagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxTiposDePagamento.FormattingEnabled = true;
-            this.comboBoxTiposDePagamento.Location = new System.Drawing.Point(278, 402);
+            this.comboBoxTiposDePagamento.Location = new System.Drawing.Point(300, 576);
             this.comboBoxTiposDePagamento.Name = "comboBoxTiposDePagamento";
-            this.comboBoxTiposDePagamento.Size = new System.Drawing.Size(337, 28);
+            this.comboBoxTiposDePagamento.Size = new System.Drawing.Size(344, 28);
             this.comboBoxTiposDePagamento.TabIndex = 10;
             // 
             // label6
@@ -273,13 +285,21 @@ namespace ControleEstoque_Acai
             this.dataGridViewVendas.AllowDrop = true;
             this.dataGridViewVendas.AllowUserToAddRows = false;
             this.dataGridViewVendas.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.MidnightBlue;
-            this.dataGridViewVendas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.MidnightBlue;
+            this.dataGridViewVendas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridViewVendas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewVendas.BackgroundColor = System.Drawing.Color.DarkSlateBlue;
             this.dataGridViewVendas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridViewVendas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridViewVendas.ColumnHeadersHeight = 48;
+            this.dataGridViewVendas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.MediumPurple;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewVendas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            this.dataGridViewVendas.ColumnHeadersHeight = 30;
             this.dataGridViewVendas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idProduto,
             this.nome,
@@ -291,20 +311,20 @@ namespace ControleEstoque_Acai
             this.idAdicional2,
             this.excluir});
             this.dataGridViewVendas.GridColor = System.Drawing.Color.DarkSlateBlue;
-            this.dataGridViewVendas.Location = new System.Drawing.Point(23, 39);
+            this.dataGridViewVendas.Location = new System.Drawing.Point(23, 54);
             this.dataGridViewVendas.Name = "dataGridViewVendas";
             this.dataGridViewVendas.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.MediumPurple;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Indigo;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.HotPink;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewVendas.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.MediumPurple;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Indigo;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.HotPink;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewVendas.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.dataGridViewVendas.RowHeadersVisible = false;
             this.dataGridViewVendas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewVendas.Size = new System.Drawing.Size(836, 131);
+            this.dataGridViewVendas.Size = new System.Drawing.Size(938, 219);
             this.dataGridViewVendas.TabIndex = 0;
             this.dataGridViewVendas.Tag = "";
             this.dataGridViewVendas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewVendas_CellContentClick);
@@ -314,6 +334,7 @@ namespace ControleEstoque_Acai
             this.idProduto.HeaderText = "ID";
             this.idProduto.Name = "idProduto";
             this.idProduto.ReadOnly = true;
+            this.idProduto.Visible = false;
             // 
             // nome
             // 
@@ -375,7 +396,7 @@ namespace ControleEstoque_Acai
             this.tabEstoque.Location = new System.Drawing.Point(4, 29);
             this.tabEstoque.Name = "tabEstoque";
             this.tabEstoque.Padding = new System.Windows.Forms.Padding(3);
-            this.tabEstoque.Size = new System.Drawing.Size(768, 463);
+            this.tabEstoque.Size = new System.Drawing.Size(972, 611);
             this.tabEstoque.TabIndex = 1;
             this.tabEstoque.Text = "Estoque";
             this.tabEstoque.UseVisualStyleBackColor = true;
@@ -390,18 +411,18 @@ namespace ControleEstoque_Acai
             this.groupBox1.Controls.Add(this.txtQuantidadeProdutoNovo);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtNomeProdutoNovo);
-            this.groupBox1.Location = new System.Drawing.Point(9, 294);
+            this.groupBox1.Location = new System.Drawing.Point(19, 441);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(433, 146);
+            this.groupBox1.Size = new System.Drawing.Size(673, 146);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Adicionar novo item";
             // 
             // BtnAdicionar
             // 
-            this.BtnAdicionar.Location = new System.Drawing.Point(327, 23);
+            this.BtnAdicionar.Location = new System.Drawing.Point(517, 95);
             this.BtnAdicionar.Name = "BtnAdicionar";
-            this.BtnAdicionar.Size = new System.Drawing.Size(87, 37);
+            this.BtnAdicionar.Size = new System.Drawing.Size(118, 37);
             this.BtnAdicionar.TabIndex = 6;
             this.BtnAdicionar.Text = "Adicionar";
             this.BtnAdicionar.UseVisualStyleBackColor = true;
@@ -456,7 +477,7 @@ namespace ControleEstoque_Acai
             // 
             this.txtNomeProdutoNovo.Location = new System.Drawing.Point(16, 46);
             this.txtNomeProdutoNovo.Name = "txtNomeProdutoNovo";
-            this.txtNomeProdutoNovo.Size = new System.Drawing.Size(288, 26);
+            this.txtNomeProdutoNovo.Size = new System.Drawing.Size(619, 26);
             this.txtNomeProdutoNovo.TabIndex = 0;
             // 
             // dataGridViewEstoque
@@ -470,7 +491,7 @@ namespace ControleEstoque_Acai
             this.dataGridViewEstoque.ReadOnly = true;
             this.dataGridViewEstoque.RowHeadersVisible = false;
             this.dataGridViewEstoque.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewEstoque.Size = new System.Drawing.Size(753, 178);
+            this.dataGridViewEstoque.Size = new System.Drawing.Size(944, 312);
             this.dataGridViewEstoque.TabIndex = 2;
             this.dataGridViewEstoque.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEstoque_CellContentClick);
             this.dataGridViewEstoque.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dataGridViewEstoque_RowPrePaint);
@@ -484,9 +505,9 @@ namespace ControleEstoque_Acai
             this.gBoxRecarregar.Controls.Add(this.btnRecarregar);
             this.gBoxRecarregar.Controls.Add(this.lblProduto);
             this.gBoxRecarregar.Controls.Add(this.progressProduto);
-            this.gBoxRecarregar.Location = new System.Drawing.Point(9, 191);
+            this.gBoxRecarregar.Location = new System.Drawing.Point(9, 325);
             this.gBoxRecarregar.Name = "gBoxRecarregar";
-            this.gBoxRecarregar.Size = new System.Drawing.Size(753, 97);
+            this.gBoxRecarregar.Size = new System.Drawing.Size(944, 97);
             this.gBoxRecarregar.TabIndex = 0;
             this.gBoxRecarregar.TabStop = false;
             this.gBoxRecarregar.Text = "Recarregar Produto";
@@ -505,9 +526,10 @@ namespace ControleEstoque_Acai
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(581, 68);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(706, 75);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(19, 20);
+            this.label2.Size = new System.Drawing.Size(14, 13);
             this.label2.TabIndex = 5;
             this.label2.Text = "g";
             // 
@@ -515,7 +537,7 @@ namespace ControleEstoque_Acai
             // 
             this.lblQuantidadeRecarregada.AutoSize = true;
             this.lblQuantidadeRecarregada.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblQuantidadeRecarregada.Location = new System.Drawing.Point(532, 61);
+            this.lblQuantidadeRecarregada.Location = new System.Drawing.Point(664, 59);
             this.lblQuantidadeRecarregada.Name = "lblQuantidadeRecarregada";
             this.lblQuantidadeRecarregada.Size = new System.Drawing.Size(19, 20);
             this.lblQuantidadeRecarregada.TabIndex = 6;
@@ -528,12 +550,12 @@ namespace ControleEstoque_Acai
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(81, 48);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(293, 43);
+            this.panel1.Size = new System.Drawing.Size(496, 43);
             this.panel1.TabIndex = 5;
             // 
             // btnSimulacao
             // 
-            this.btnSimulacao.Location = new System.Drawing.Point(215, 8);
+            this.btnSimulacao.Location = new System.Drawing.Point(405, 11);
             this.btnSimulacao.Name = "btnSimulacao";
             this.btnSimulacao.Size = new System.Drawing.Size(75, 29);
             this.btnSimulacao.TabIndex = 5;
@@ -543,15 +565,15 @@ namespace ControleEstoque_Acai
             // 
             // txtSimulacao
             // 
-            this.txtSimulacao.Location = new System.Drawing.Point(21, 6);
+            this.txtSimulacao.Location = new System.Drawing.Point(21, 9);
             this.txtSimulacao.Name = "txtSimulacao";
-            this.txtSimulacao.Size = new System.Drawing.Size(110, 26);
+            this.txtSimulacao.Size = new System.Drawing.Size(272, 26);
             this.txtSimulacao.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(133, 9);
+            this.label1.Location = new System.Drawing.Point(304, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 20);
             this.label1.TabIndex = 4;
@@ -559,7 +581,7 @@ namespace ControleEstoque_Acai
             // 
             // btnRecarregar
             // 
-            this.btnRecarregar.Location = new System.Drawing.Point(620, 64);
+            this.btnRecarregar.Location = new System.Drawing.Point(792, 68);
             this.btnRecarregar.Name = "btnRecarregar";
             this.btnRecarregar.Size = new System.Drawing.Size(116, 26);
             this.btnRecarregar.TabIndex = 2;
@@ -583,19 +605,107 @@ namespace ControleEstoque_Acai
             this.progressProduto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.progressProduto.Location = new System.Drawing.Point(102, 28);
             this.progressProduto.Name = "progressProduto";
-            this.progressProduto.Size = new System.Drawing.Size(634, 18);
+            this.progressProduto.Size = new System.Drawing.Size(806, 18);
             this.progressProduto.Step = 1;
             this.progressProduto.TabIndex = 0;
             // 
             // tabFaturamento
             // 
+            this.tabFaturamento.Controls.Add(this.panel2);
+            this.tabFaturamento.Controls.Add(this.dataGridView_vendas);
             this.tabFaturamento.Location = new System.Drawing.Point(4, 29);
             this.tabFaturamento.Name = "tabFaturamento";
             this.tabFaturamento.Padding = new System.Windows.Forms.Padding(3);
-            this.tabFaturamento.Size = new System.Drawing.Size(768, 463);
+            this.tabFaturamento.Size = new System.Drawing.Size(972, 611);
             this.tabFaturamento.TabIndex = 2;
             this.tabFaturamento.Text = "Faturamento";
             this.tabFaturamento.UseVisualStyleBackColor = true;
+            this.tabFaturamento.Enter += new System.EventHandler(this.tabFaturamento_Enter);
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.dateTimePicker_INICIO);
+            this.panel2.Controls.Add(this.label11);
+            this.panel2.Controls.Add(this.label10);
+            this.panel2.Controls.Add(this.dateTimePicker_FIM);
+            this.panel2.Location = new System.Drawing.Point(38, 18);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(912, 110);
+            this.panel2.TabIndex = 6;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(447, 34);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(19, 20);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "a";
+            // 
+            // dateTimePicker_INICIO
+            // 
+            this.dateTimePicker_INICIO.Location = new System.Drawing.Point(7, 28);
+            this.dateTimePicker_INICIO.MaxDate = new System.DateTime(2022, 12, 31, 0, 0, 0, 0);
+            this.dateTimePicker_INICIO.MinDate = new System.DateTime(2021, 4, 14, 0, 0, 0, 0);
+            this.dateTimePicker_INICIO.Name = "dateTimePicker_INICIO";
+            this.dateTimePicker_INICIO.Size = new System.Drawing.Size(397, 26);
+            this.dateTimePicker_INICIO.TabIndex = 2;
+            this.dateTimePicker_INICIO.Value = new System.DateTime(2021, 4, 15, 0, 0, 0, 0);
+            this.dateTimePicker_INICIO.ValueChanged += new System.EventHandler(this.dateTimePicker_INICIO_ValueChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(511, 5);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(38, 20);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "Fim";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(3, 5);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(52, 20);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Inicio";
+            // 
+            // dateTimePicker_FIM
+            // 
+            this.dateTimePicker_FIM.Location = new System.Drawing.Point(502, 28);
+            this.dateTimePicker_FIM.Name = "dateTimePicker_FIM";
+            this.dateTimePicker_FIM.Size = new System.Drawing.Size(392, 26);
+            this.dateTimePicker_FIM.TabIndex = 3;
+            this.dateTimePicker_FIM.Value = new System.DateTime(2021, 4, 15, 0, 0, 0, 0);
+            this.dateTimePicker_FIM.ValueChanged += new System.EventHandler(this.dateTimePicker_FIM_ValueChanged);
+            // 
+            // dataGridView_vendas
+            // 
+            this.dataGridView_vendas.AllowUserToAddRows = false;
+            this.dataGridView_vendas.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.BlueViolet;
+            this.dataGridView_vendas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            this.dataGridView_vendas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView_vendas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView_vendas.BackgroundColor = System.Drawing.Color.MidnightBlue;
+            this.dataGridView_vendas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_vendas.Location = new System.Drawing.Point(29, 169);
+            this.dataGridView_vendas.Name = "dataGridView_vendas";
+            this.dataGridView_vendas.ReadOnly = true;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.BlueViolet;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_vendas.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            this.dataGridView_vendas.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dataGridView_vendas.Size = new System.Drawing.Size(921, 425);
+            this.dataGridView_vendas.TabIndex = 0;
             // 
             // Form1
             // 
@@ -603,10 +713,11 @@ namespace ControleEstoque_Acai
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.ClientSize = new System.Drawing.Size(908, 512);
+            this.ClientSize = new System.Drawing.Size(1004, 659);
             this.Controls.Add(this.tabVenda);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Açai Store";
             this.tabVenda.ResumeLayout(false);
             this.tabVendas.ResumeLayout(false);
@@ -621,6 +732,10 @@ namespace ControleEstoque_Acai
             this.gBoxRecarregar.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.tabFaturamento.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_vendas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -659,6 +774,11 @@ namespace ControleEstoque_Acai
         private System.Windows.Forms.DataGridView dataGridViewCardapio;
         private System.Windows.Forms.DataGridViewComboBoxColumn a1;
         private System.Windows.Forms.DataGridViewComboBoxColumn a2;
+        private System.Windows.Forms.Label lblValorTotal;
+        private System.Windows.Forms.Label lblValorTotal2;
+        private System.Windows.Forms.Button btnVenda;
+        private System.Windows.Forms.TextBox txtNomeCliente;
+        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridViewTextBoxColumn idProduto;
         private System.Windows.Forms.DataGridViewTextBoxColumn nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn tamanho;
@@ -668,11 +788,13 @@ namespace ControleEstoque_Acai
         private System.Windows.Forms.DataGridViewTextBoxColumn idAdicional1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idAdicional2;
         private System.Windows.Forms.DataGridViewButtonColumn excluir;
-        private System.Windows.Forms.Label lblValorTotal;
-        private System.Windows.Forms.Label lblValorTotal2;
-        private System.Windows.Forms.Button btnVenda;
-        private System.Windows.Forms.TextBox txtNomeCliente;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_INICIO;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_FIM;
+        private System.Windows.Forms.DataGridView dataGridView_vendas;
     }
 }
 

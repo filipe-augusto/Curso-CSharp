@@ -226,16 +226,12 @@ namespace ControleEstoque_Acai
 
 
         #region Vendas
-        private void btnAdicionarProdutos_Click(object sender, EventArgs e)
-        {
-
-        }
-
+    
+        #region Carrega Cardapio
         private void carregaGridCardapio()
         {
             dataGridViewCardapio.DataSource = conexao.selectCardapio();
             dataGridViewCardapio.Columns["IdAcai"].Visible = false;
-            dataGridViewCardapio.Columns["Codigo"].Width = 80;
             dataGridViewCardapio.Columns["mL"].Width = 80;
             dataGridViewCardapio.Columns["Valor"].Width = 100;
             a1.DisplayMember = "nomeitem";
@@ -245,8 +241,9 @@ namespace ControleEstoque_Acai
             a2.ValueMember = "idProduto";
             a2.DataSource = conexao.selectAdicional();
         }
+        #endregion
 
-
+        #region Preenche ComboBoxs Pagamento
         private void preencheComboBoxs()
         {
             comboBoxTiposDePagamento.DisplayMember = "nomePagamento";
@@ -254,23 +251,25 @@ namespace ControleEstoque_Acai
             comboBoxTiposDePagamento.DataSource = conexao.selectFormaDePagamento();
 
         }
-
+        #endregion
         private void tabVendas_Enter(object sender, EventArgs e)
         {
             preencheComboBoxs();
             carregaGridCardapio();
-
         }
 
-        #endregion
-
-     
-
+        #region Adicionando no carrinho
         private void dataGridViewCardapio_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+
+            if (Convert.ToInt32(dataGridViewCardapio.Rows[e.RowIndex].Cells[0].Value) == 0 ||
+               Convert.ToInt32(dataGridViewCardapio.Rows[e.RowIndex].Cells[1].Value) == 0)
+            {
+                return;
+            }
             try
             {             
-                cardapio.idProduto = Convert.ToInt32(dataGridViewCardapio.Rows[e.RowIndex].Cells["Codigo"].Value.ToString());
+                cardapio.IdAcai = Convert.ToInt32(dataGridViewCardapio.Rows[e.RowIndex].Cells["IdAcai"].Value.ToString());
                 cardapio.NomeItem = (dataGridViewCardapio.Rows[e.RowIndex].Cells["Nome"].Value.ToString());
                 cardapio.Valor = Convert.ToInt32(dataGridViewCardapio.Rows[e.RowIndex].Cells["Valor"].Value.ToString());
                 cardapio.Tamanho = dataGridViewCardapio.Rows[e.RowIndex].Cells["Tamanho"].Value.ToString();
@@ -294,21 +293,20 @@ namespace ControleEstoque_Acai
                         return;
                     }
                 }
-
                 AddCarinho(cardapio);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                //MessageBox.Show(ex.Message);
             }
-        }
-
+        }      
         private void AddCarinho(Cardapio c)
         {
             insereValorTotal(Convert.ToInt32(c.Valor));
-            dataGridViewVendas.Rows.Add(c.idProduto, c.NomeItem, c.Tamanho, c.Valor, c.NomeAdicional1, c.NomeAdicional2, c.IdAdicional1, c.IdAdicional2, "exluir");
+            dataGridViewVendas.Rows.Add(c.IdAcai, c.NomeItem, c.Tamanho, c.Valor, c.NomeAdicional1, c.NomeAdicional2, c.IdAdicional1, c.IdAdicional2, "exluir");
         }
-
+        #endregion
+        #region Insere Valor Total  
         public void insereValorTotal(int valor)
         {
             double resultado =Convert.ToDouble(lblValorTotal.Text) + valor;
@@ -332,28 +330,105 @@ namespace ControleEstoque_Acai
                 return;
             }
         }
-
-        private void lblValorTotal_Click(object sender, EventArgs e)
+        #endregion
+        #region Limpar
+        private void cleanFields()
         {
+            dataGridViewVendas.Rows.Clear();
+            txtNomeCliente.Text = "";
+            comboBoxTiposDePagamento.SelectedIndex = 0;
+            lblValorTotal.Text = "0";
+            lblValorTotal2.Text = "0";
 
         }
-
+        #endregion
         private void btnVenda_Click(object sender, EventArgs e)
         {
-            //dados vendas
-            venda.NomeCliente = txtNomeCliente.Text;
-            venda.ModoDePagamento = comboBoxTiposDePagamento.SelectedIndex;
-            venda.DataVenda = DateTime.Now;
-            venda.ValorTotal = Convert.ToDouble(lblValorTotal.Text);
-            //dados itens 
-            HashSet<ItensPedidos> itens = new HashSet<ItensPedidos>();
 
-            foreach (DataGridViewRow linha in dataGridViewVendas.Rows)
+            if (string.IsNullOrEmpty(txtNomeCliente.Text))
             {
-                itens.Add(new ItensPedidos(Convert.ToInt32(linha.Cells[0]), linha.Cells[2].ToString(), Convert.ToInt32(linha.Cells[4]),
-                   Convert.ToInt32(linha.Cells[5]),Convert.ToDouble(linha.Cells[3])));
+
+                txtNomeCliente.Focus();
+                return;
+            }
+            if (dataGridViewCardapio.Rows.Count == 0)
+            {
+                MessageBox.Show("Não há itens no carrinho.", "Informativo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                dataGridViewCardapio.Focus();
+                return;
+            }
+            try
+            {
+                //dados vendas
+                venda.NomeCliente = txtNomeCliente.Text;
+                venda.ModoDePagamento = comboBoxTiposDePagamento.SelectedIndex +1;
+                venda.DataVenda = DateTime.Now;
+                venda.ValorTotal = Convert.ToDouble(lblValorTotal.Text);
+                //dados itens 
+                HashSet<ItensPedidos> itens = new HashSet<ItensPedidos>();
+                if (MessageBox.Show($"Confirma a venda \n No valor de R${venda.ValorTotal}?", "Informativo", MessageBoxButtons.YesNo,MessageBoxIcon.Question)
+                    == DialogResult.Yes)
+                {
+                    for (int i = 0; i < dataGridViewVendas.Rows.Count; i++)
+                    {
+                        itens.Add(new ItensPedidos(Convert.ToInt32(dataGridViewVendas.Rows[i].Cells["idProduto"].Value),
+                              dataGridViewVendas.Rows[i].Cells["tamanho"].Value.ToString(),
+                                Convert.ToInt32(dataGridViewVendas.Rows[i].Cells["idAdicional1"].Value),
+                                 Convert.ToInt32(dataGridViewVendas.Rows[i].Cells["idAdicional2"].Value),
+                              Convert.ToDouble(dataGridViewVendas.Rows[i].Cells["valor"].Value)
+                              ));
+                    }
+                    conexao.InsereVenda(venda, itens);
+                    MessageBox.Show("VENDA REALIZADA");
+                     cleanFields();
+                }
+                else
+                {
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Erro: " + ex.Message);
             }
 
         }
+
+        #endregion
+        private void tabFaturamento_Enter(object sender, EventArgs e)
+        {
+            carregagridFaturamento();
+        }
+
+        private void carregagridFaturamento()
+        {
+            try
+            {
+                string dataInicio = dateTimePicker_INICIO.Value.ToString();
+                string dataFinal = dateTimePicker_FIM.Value.ToString();
+                dataGridView_vendas.DataSource = conexao.selectFaturamento(dataInicio,dataFinal);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("erro: " + ex);
+               // throw;
+            }
+        }
+
+        private void dateTimePicker_INICIO_ValueChanged(object sender, EventArgs e)
+        {
+            carregagridFaturamento();
+        }
+
+        private void dateTimePicker_FIM_ValueChanged(object sender, EventArgs e)
+        {
+            carregagridFaturamento();
+        }
+
+        //private void dataGridViewEstoque_Enter(object sender, EventArgs e)
+        //{
+        //  
+        //}
     }
 }

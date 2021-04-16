@@ -46,7 +46,32 @@ namespace ControleEstoque_Acai.Entities
         }
 
 
+        public DataTable selectFaturamento (string inicio, string final)
+        {
+            try
+            {
+                using (var conexao = AbrirConexao())
+                {
+                    conexao.Open();
+                    string query = " SELECT [codigo],[valorTotal], m.nome_modoDePagamento, [dataVenda], [nomeCliente]"
+                        + " from vendas as v " +
+                        "   inner join modoDePagamento as m on " +
+                        "  v.modoDePagamento = m.id_modoDePagamento"
+                        + $" where dataVenda >= '{inicio}' " +
+                        $"   and dataVenda <= '{final}' ";
 
+                    DataTable dados = new DataTable();
+                    SqlDataAdapter adaptador = new SqlDataAdapter(query, stringConection);
+                    adaptador.Fill(dados);
+                    return dados;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
 
 
         public void recarregarProduto(Produto p)
@@ -117,32 +142,43 @@ namespace ControleEstoque_Acai.Entities
 
         public void InsereVenda(Vendas venda, HashSet<ItensPedidos> itens)
         {
-            int codigovenda = 0;
-            using (var conexao = AbrirConexao())
-            {         
-                conexao.Open();
-                using (var comando = conexao.CreateCommand())
+            try
+            {
+                int codigovenda = 0;
+                using (var conexao = AbrirConexao())
                 {
-                    comando.CommandText = $"INSERT vendas values ({venda.ValorTotal},{venda.ModoDePagamento}," +
-                        $" '{venda.DataVenda}', '{venda.NomeCliente}')";
-                    comando.ExecuteNonQuery();
+                    conexao.Open();
+                    using (var comando = conexao.CreateCommand())
+                    {
+                        comando.CommandText = $"INSERT vendas values ({venda.ValorTotal},{venda.ModoDePagamento}," +
+                            $" '{venda.DataVenda}', '{venda.NomeCliente}')";
+                        comando.ExecuteNonQuery();
+                    }
+                    conexao.Close();
+                    using (var C = AbrirConexao())
+                    {
+                        C.Open();
+                        string query = $"SELECT TOP 1  codigo FROM " +
+                            $" vendas WHERE  nomeCliente LIKE '{venda.NomeCliente}' and dataVenda = '{venda.DataVenda}'";
+                        DataTable dt = new DataTable();
+                        SqlDataAdapter adaptador = new SqlDataAdapter(query, stringConection);
+                        adaptador.Fill(dt);
+                        codigovenda = (int)dt.Rows[0][0];
+                    }
+                    insereItens(itens, codigovenda, venda.DataVenda.ToString());
                 }
-                conexao.Close();
-                using (var C = AbrirConexao())
-                {
-                    C.Open();
-                    string query = $"SELECT TOP 1  codigo FROM " +
-                        $" vendas WHERE  nomeCliente LIKE '{venda.NomeCliente}' and dataVenda = {venda.DataVenda}";
-                    DataTable dt = new DataTable();
-                    SqlDataAdapter adaptador = new SqlDataAdapter(query, stringConection);
-                    adaptador.Fill(dt);
-                    codigovenda = (int)dt.Rows[0][0];
-                }
-                insereItens(itens, codigovenda);
             }
+            catch (Exception e)
+            {
+
+                Console.WriteLine("ERRO: " + e.Message);
+            }
+
+
+         
         }
 
-        public void insereItens(HashSet<ItensPedidos> itens, int codVenda)
+        public void insereItens(HashSet<ItensPedidos> itens, int codVenda, string data)
         {
 
             using (var conexao = AbrirConexao())
@@ -153,23 +189,73 @@ namespace ControleEstoque_Acai.Entities
 
                     foreach (var item in itens)
                     {
-                        comando.CommandText = $"INSERT itensPedidos values ({codVenda},{item.CodigoProdutoAcai},'{item.TipoAcai}'," +
+                        comando.CommandText = $"INSERT itensPedidos values ({codVenda},{item.CodigoProdutoAcai}," +
                                               $" '{item.TamanhoAcai}', {item.CodigoProdutoAdicional1}," +
-                                              $" {item.CodigoProdutoAdicional2}, {item.Valor})";
+                                              $" {item.CodigoProdutoAdicional2}, {item.Valor}, '{data}')";
+                        atualizaPesosDosItens(item.CodigoProdutoAcai, item.TamanhoAcai);
+                        atualizaPesosDosItens(item.CodigoProdutoAdicional1, item.TamanhoAcai);
+                        atualizaPesosDosItens(item.CodigoProdutoAdicional2, item.TamanhoAcai);
                         comando.ExecuteNonQuery();
-
+                   
                     }
-                  
                 }
                 conexao.Close();
             }
+        }
+        public int retornaPesos(int idProduto, string tamanho)
+            {
+         
+            if (idProduto > 3)
+            {
+                return 100;
+            }
+            else
+            {
+                if (tamanho.Equals("P"))
+                {
+                    return 250;
+                } else if (tamanho.Equals("M"))
+                {
+                    return 450;
+                } else if (tamanho.Equals("G"))
+                {
+                    return 750;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+        }
+            
+        public void atualizaPesosDosItens(int idProduto, string tamanho)
+        {
+            try
+            {
+                using (var conexao = AbrirConexao())
+                {
+                    conexao.Open();
+                    using (var comando = conexao.CreateCommand())
+                    {
+                        comando.CommandText = $"EXEC USP_ATUALIZA_PESOS {idProduto}, {retornaPesos(idProduto, tamanho)} ";
+                        comando.ExecuteNonQuery();
+                    }
+                    conexao.Close();
+                }
+            }
+            catch (Exception e)
+            {
 
+                Console.WriteLine("ERRO: " + e.Message);
+            }
+
+        }
 
 
            
         }
     }
-    }
+    
 
 
 
