@@ -89,26 +89,30 @@ namespace BotTelegramConnect
             // imagemDaWebToolStripMenuItem
             // 
             this.imagemDaWebToolStripMenuItem.Name = "imagemDaWebToolStripMenuItem";
-            this.imagemDaWebToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.imagemDaWebToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.imagemDaWebToolStripMenuItem.Text = "Imagem da Web";
+            this.imagemDaWebToolStripMenuItem.Click += new System.EventHandler(this.imagemDaWebToolStripMenuItem_Click);
             // 
             // imagemLocalToolStripMenuItem
             // 
             this.imagemLocalToolStripMenuItem.Name = "imagemLocalToolStripMenuItem";
-            this.imagemLocalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.imagemLocalToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.imagemLocalToolStripMenuItem.Text = "Imagem local";
+            this.imagemLocalToolStripMenuItem.Click += new System.EventHandler(this.imagemLocalToolStripMenuItem_Click);
             // 
             // envioDeMensagemComEmojiToolStripMenuItem
             // 
             this.envioDeMensagemComEmojiToolStripMenuItem.Name = "envioDeMensagemComEmojiToolStripMenuItem";
             this.envioDeMensagemComEmojiToolStripMenuItem.Size = new System.Drawing.Size(283, 22);
             this.envioDeMensagemComEmojiToolStripMenuItem.Text = "Envio de Mensagem com Emoji";
+            this.envioDeMensagemComEmojiToolStripMenuItem.Click += new System.EventHandler(this.envioDeMensagemComEmojiToolStripMenuItem_Click);
             // 
             // envioDeMensagemComTemporizadorToolStripMenuItem
             // 
             this.envioDeMensagemComTemporizadorToolStripMenuItem.Name = "envioDeMensagemComTemporizadorToolStripMenuItem";
             this.envioDeMensagemComTemporizadorToolStripMenuItem.Size = new System.Drawing.Size(283, 22);
             this.envioDeMensagemComTemporizadorToolStripMenuItem.Text = "Envio de Mensagem com Temporizador";
+            this.envioDeMensagemComTemporizadorToolStripMenuItem.Click += new System.EventHandler(this.envioDeMensagemComTemporizadorToolStripMenuItem_Click);
             // 
             // Form1
             // 

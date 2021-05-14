@@ -52,11 +52,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmojiConfig.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEnvioComTemporizador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEnvioComTemporizador.Designer.cs">
+      <DependentUpon>FrmEnvioComTemporizador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEnvioImagemLocal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEnvioImagemLocal.Designer.cs">
+      <DependentUpon>FrmEnvioImagemLocal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEnvioImagemWeb.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEnvioImagemWeb.Designer.cs">
+      <DependentUpon>FrmEnvioImagemWeb.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmEnvioTexto.cs">
       <SubType>Form</SubType>
@@ -64,13 +83,31 @@
     <Compile Include="FrmEnvioTexto.Designer.cs">
       <DependentUpon>FrmEnvioTexto.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmTextoComEmojics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTextoComEmojics.Designer.cs">
+      <DependentUpon>FrmTextoComEmojics.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmEnvioComTemporizador.resx">
+      <DependentUpon>FrmEnvioComTemporizador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEnvioImagemLocal.resx">
+      <DependentUpon>FrmEnvioImagemLocal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEnvioImagemWeb.resx">
+      <DependentUpon>FrmEnvioImagemWeb.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmEnvioTexto.resx">
       <DependentUpon>FrmEnvioTexto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTextoComEmojics.resx">
+      <DependentUpon>FrmTextoComEmojics.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -101,6 +138,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\telegram-bot-with-aws-lambda.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Mensagens.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

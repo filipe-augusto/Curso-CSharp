@@ -13,23 +13,18 @@ using Telegram.Bot.Types.Enums;
 
 namespace BotTelegramConnect
 {
-    public partial class FrmEnvioTexto : Form
+    public partial class FrmEnvioImagemWeb : Form
     {
-        public FrmEnvioTexto()
+        public FrmEnvioImagemWeb()
         {
             InitializeComponent();
-
-            ServicePointManager.Expect100Continue = true;
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
         }
-
-   
 
         private async void btnEnviar_Click(object sender, EventArgs e)
         {
-            if (txtMensagem.Text.Trim().Equals(string.Empty))
+            if (txtURL.Text.Trim().Equals(string.Empty))
             {
-                MessageBox.Show("Infome a mensagem para envio.", this.Text,
+                MessageBox.Show("Infome a URL da imagem para envio.", this.Text,
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 //errorProvider1.SetError(txtMensagem, "campo vazio")
                 return;
@@ -37,23 +32,46 @@ namespace BotTelegramConnect
             try
             {
                 TelegramBotClient telegrambot = new TelegramBotClient("1828957988:AAEEJzFdazsiXu1sb9DuWd0GBRdcMU00wIw");
-                await telegrambot.SendTextMessageAsync(chatId: "-1001488109717",
-                       txtMensagem.Text.Trim(),
-                       parseMode: ParseMode.Html
-                       );
+                var imagemRequest = WebRequest.Create(txtURL.Text.Trim());
+                using (var  imagemResponse = imagemRequest.GetResponse())
+                {
+                    var stream = imagemResponse.GetResponseStream();
+                    await telegrambot.SendPhotoAsync(chatId: "-1001488109717", photo: stream, caption: txtMensagem.Text.Trim(),          
+                           parseMode: ParseMode.Html);
+                }
                 MessageBox.Show("Mensagem enviada com sucesso!", this.Text, MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show("Erro ao enviar mensagem! " + ex.Message, this.Text, MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
             finally
             {
                 txtMensagem.Text = string.Empty;
+                txtURL.Text = string.Empty;
             }
+        }
+
+        private void txtURL_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMensagem_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BotTelegramConnect
@@ -39,6 +32,33 @@ namespace BotTelegramConnect
             var frm = new FrmEnvioTexto();
             frm.MdiParent = this;
             frm.Show();
+        }
+
+        private void imagemDaWebToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new FrmEnvioImagemWeb();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void imagemLocalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new FrmEnvioImagemLocal();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void envioDeMensagemComEmojiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new FrmTextoComEmojics();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void envioDeMensagemComTemporizadorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new FrmEnvioComTemporizador();
+            frm.MdiParent = this;
             frm.Show();
         }
     }
