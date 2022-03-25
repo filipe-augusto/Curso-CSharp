@@ -30,6 +30,7 @@ namespace BancoDeDados_Data_Grid_File
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn = new System.Windows.Forms.Button();
             this.txtDescricao = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -44,7 +45,6 @@ namespace BancoDeDados_Data_Grid_File
             this.DESCRICAO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.linkImage = new System.Windows.Forms.DataGridViewLinkColumn();
             this.btnExcluir = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLista)).BeginInit();
             this.SuspendLayout();
@@ -64,6 +64,19 @@ namespace BancoDeDados_Data_Grid_File
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(743, 168);
             this.panel1.TabIndex = 0;
+            // 
+            // btn
+            // 
+            this.btn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn.Location = new System.Drawing.Point(615, 6);
+            this.btn.Name = "btn";
+            this.btn.Size = new System.Drawing.Size(102, 67);
+            this.btn.TabIndex = 8;
+            this.btn.Text = "Nota Fiscal";
+            this.btn.UseVisualStyleBackColor = false;
+            this.btn.Click += new System.EventHandler(this.btn_Click);
             // 
             // txtDescricao
             // 
@@ -121,6 +134,7 @@ namespace BancoDeDados_Data_Grid_File
             this.txtImagem.Size = new System.Drawing.Size(483, 24);
             this.txtImagem.TabIndex = 3;
             this.txtImagem.Text = "...";
+            this.txtImagem.TextChanged += new System.EventHandler(this.txtImagem_TextChanged);
             // 
             // label1
             // 
@@ -195,19 +209,6 @@ namespace BancoDeDados_Data_Grid_File
             // 
             this.btnExcluir.HeaderText = "EXCLUIR";
             this.btnExcluir.Name = "btnExcluir";
-            // 
-            // btn
-            // 
-            this.btn.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn.Location = new System.Drawing.Point(615, 6);
-            this.btn.Name = "btn";
-            this.btn.Size = new System.Drawing.Size(102, 67);
-            this.btn.TabIndex = 8;
-            this.btn.Text = "Nota Fiscal";
-            this.btn.UseVisualStyleBackColor = false;
-            this.btn.Click += new System.EventHandler(this.btn_Click);
             // 
             // Form1
             // 
