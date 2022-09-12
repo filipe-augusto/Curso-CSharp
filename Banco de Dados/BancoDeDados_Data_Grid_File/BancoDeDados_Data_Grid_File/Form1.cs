@@ -203,5 +203,10 @@ namespace BancoDeDados_Data_Grid_File
         {
 
         }
+
+        private void txtImagem_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
     }
