@@ -251,7 +251,7 @@ namespace Linq_1
                 lista.Items.Add(grupo.Key);
                 foreach (var estado in grupo)
                 {
-                    lista.Items.Add("       " + estado.Key);
+                    lista.Items.Add("GRUPO: " + estado.Key);
                 }
                     
             }
